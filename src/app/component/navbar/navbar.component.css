@@ -1,0 +1,94 @@
+ /* Sidebar */
+ .sidebar {
+    width: 10%;
+    min-width: 100px;
+    background-color: #F9912E;
+    color: white;
+    padding: 20px;
+    
+  }
+  
+  .nav-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    
+  }
+  
+  .nav-menu li {
+    text-align: center;
+  }
+  
+  .nav-menu a {
+   
+    color: white;
+    text-decoration: none;
+  }
+
+  .nav-menu img {
+    width: 50%;
+  
+  }
+
+  
+  .nav-menu-logo img {
+    width: 100%;
+    padding-bottom: 50px;
+   
+  }
+  
+  .nav-menu div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 0 15px 0 ;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+
+  
+  /* 🎯 Efecto al hacer hover */
+  .nav-menu div:hover {
+    background-color: rgb(111, 6, 6);
+    border-color: #F9912E;
+    transform: scale(1.1); /* Hace un pequeño zoom */
+  }
+  
+  .nav-menu div:hover a {
+    color: white; /* Cambia el color del texto */
+  }
+  
+  /* Contenido principal */
+  .main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Header */
+  .main-content--header {
+    background-color: #861F1B;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .main-content--header--app-name h1 {
+    color: white;
+    font-size: 34px;
+    font-family: 'Lobster', cursive !important;
+  }
+  .main-content--header div img {
+  height: 30px;
+  }
+  
+  .search input {
+    padding: 8px;
+    width: 200px;
+    border-radius: 4px;
+    border: none;
+  }

@@ -1,0 +1,73 @@
+<div class="app-container">
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <ul class="nav-menu">
+        <a class="nav-menu-logo" href="">
+          <img   src="/assets/images/palFilo-logo.png" alt="" >
+        </a>
+        <!-----------Home----------->
+        <div routerLink="/app-inicio">
+        <img src="/assets/images/home.png" alt="">
+        <li><a >{{ 'MENU.HOME' | translate }}</a></li>
+        </div>
+          <!-----------reseñas----------->
+        <div routerLink="/app-resenas">
+          <img src="/assets/images/comentarios.png" alt="">
+          <li>{{ 'MENU.REVIEWS' | translate }}</li>
+        </div>
+          <!-----------Preferidos----------->
+        <div routerLink="/app-preferidos">
+        <img src="/assets/images/corazon.png" alt="">
+        <li>{{ 'MENU.FAVORITES' | translate }}</li>
+      </div>
+
+      </ul>
+    </nav>
+  
+    <!-- Contenido principal -->
+    <div class="main-content">
+      <!-- Header superior -->
+      <div class="main-content--header">
+        <div class="main-content--header--app-name">
+          <h1>{{ 'APP_NAME' | translate }}</h1>
+        </div>
+        <div class="search">
+          <input type="text" placeholder="Buscar...">
+          
+        </div>
+        
+          <select id="language" [(ngModel)]="selectedLanguage" (change)="changeLanguage(selectedLanguage)">
+            <option *ngFor="let lang of languages" [value]="lang.code">{{ lang.label }}</option>
+          </select>
+
+      </div>
+  
+
+
+      <!-- Área de cards -->
+      <div class="card-area">
+        <div class="card">
+            <app-card-restaurantes></app-card-restaurantes>
+        </div>
+        <div class="card">
+          <app-card-restaurantes></app-card-restaurantes>
+      </div>
+      <div class="card">
+        <app-card-restaurantes></app-card-restaurantes>
+      </div>
+      <div class="card">
+        <app-card-restaurantes></app-card-restaurantes>
+      </div>
+      <div class="card">
+        <app-card-restaurantes></app-card-restaurantes>
+      </div>
+       <div class="card">
+        <app-card-restaurantes></app-card-restaurantes>
+      </div>
+    
+        
+        <!-- Más cards aquí -->
+      </div>
+    </div>
+  </div>
+  

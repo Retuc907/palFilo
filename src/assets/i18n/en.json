@@ -1,0 +1,19 @@
+{
+    "APP_NAME": "Pal Filo",
+    "MENU": {
+      "HOME": "Home",
+      "REVIEWS": "Reviews",
+      "FAVORITES": "Favorites"
+    },
+    "SEARCH_PLACEHOLDER": "Search...",
+    "USER_PROFILE": "User Profile",
+    "LANGUAGE": "Language",
+    "WELCOME": "Welcome",
+    "HELLO": "Hello, {{name}}!",
+    "SELECT_LANGUAGE": "Select a language",
+    "CARD": {
+      "CATEGORY": "Category: Fast Food",
+      "RATING": "Calification: 4.8"
+    }
+  }
+  

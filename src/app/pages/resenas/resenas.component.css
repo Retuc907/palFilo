@@ -1,0 +1,185 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .app-container {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 10%;
+    min-width: 100px;
+    background-color: #F9912E;
+    color: white;
+    padding: 20px;
+    
+  }
+  
+  .nav-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    
+  }
+  
+  .nav-menu li {
+    text-align: center;
+  }
+  
+  .nav-menu a {
+   
+    color: white;
+    text-decoration: none;
+  }
+
+  .nav-menu img {
+    width: 50%;
+  
+  }
+
+  
+  .nav-menu-logo img {
+    width: 100%;
+    padding-bottom: 50px;
+
+   
+  }
+  
+  .nav-menu div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 0 15px 0 ;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+
+  
+  /* 🎯 Efecto al hacer hover */
+  .nav-menu div:hover {
+    background-color: rgb(111, 6, 6);
+    border-color: #F9912E;
+    transform: scale(1.1); /* Hace un pequeño zoom */
+  }
+  
+  .nav-menu div:hover a {
+    color: white; /* Cambia el color del texto */
+  }
+  
+  /* Contenido principal */
+  .main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Header */
+  .main-content--header {
+    background-color: #861F1B;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .main-content--header--app-name h1 {
+    color: white;
+    font-size: 34px;
+    font-family: 'Lobster', cursive !important;
+  }
+  .main-content--header div img {
+  height: 30px;
+  }
+  
+  .search input {
+    padding: 8px;
+    width: 200px;
+    border-radius: 4px;
+    border: none;
+  }
+  
+  /* Área de cards */
+  .card-area {
+    padding: 10px; /* Reducir padding para compactar más */
+    flex-grow: 1;
+    overflow-y: auto; /* Agrega scroll interno */
+    height: calc(100vh - 80px); /* Altura total menos el header */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: flex-start; /* Alinear las cards al inicio */
+    gap: 50px  8%;
+}
+
+.card-area img {
+    height: 100%;
+}
+
+  
+  .card {
+    
+    border: none;
+    padding: 15px;
+    height:auto; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Evita que la imagen se salga del div */
+    transition: all 0.3s ease-in-out;
+  }
+
+  .card:hover {
+    background-color: white;
+    border-color: #F9912E;
+    transform: scale(1.1);
+  }
+  
+ 
+  .card img {
+    object-fit: cover;
+   width: 100%;
+   height: 100%;
+  }
+  
+  /* Media queries para responsividad */
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 60px;
+      min-width: 60px;
+      padding: 10px;
+    }
+  
+    .header {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .search input {
+      width: 100%;
+    }
+  
+    .card-area {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .card img {
+        height: auto; /* Se adapta al contenido sin cortarse */
+        max-height: 200px; /* Evita que la imagen crezca demasiado */
+        object-fit: contain; /* Mantiene la imagen visible sin recortes */
+      }
+      
+  }
+  
+  @media (max-width: 480px) {
+    .card-area {
+      grid-template-columns: 1fr;
+    }
+  }
