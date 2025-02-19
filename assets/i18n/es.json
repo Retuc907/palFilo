@@ -1,0 +1,19 @@
+{
+    "APP_NAME": "Pal Filo",
+    "MENU": {
+      "HOME": "Inicio",
+      "REVIEWS": "Reseñas",
+      "FAVORITES": "Preferidos"
+    },
+    "SEARCH_PLACEHOLDER": "Buscar...",
+    "USER_PROFILE": "Perfil de usuario",
+    "LANGUAGE": "Idioma",
+    "WELCOME": "Bienvenido",
+    "HELLO": "Hola, {{name}}!",
+    "SELECT_LANGUAGE": "Selecciona un idioma",
+    "CARD": {
+      "CATEGORY": "Categoría: comida rapida",
+      "RATING": "Calificación: 4.8"
+    }
+  }
+  
