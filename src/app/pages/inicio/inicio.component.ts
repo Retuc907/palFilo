@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { TranslationService } from 'src/app/services/translate.service';
 
 
 @Component({
@@ -9,22 +10,16 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class InicioComponent {
 
-    selectedLanguage = 'es'; // Idioma por defecto
-    languages = [
-      { code: 'es', label: 'Español' },
-      { code: 'en', label: 'English' },
-      { code: 'fr', label: 'Français' },
-      { code: 'de', label: 'Deutsch' }
-    ];
-  
-    constructor(private translate: TranslateService) {
-      this.translate.setDefaultLang(this.selectedLanguage);
-      this.translate.use(this.selectedLanguage);
-    }
-  
-    changeLanguage(lang: string) {
-      this.selectedLanguage = lang;
-      this.translate.use(lang);
-    }
+  selectedLanguage: string = 'es';
+  languages = this.translationService.languages;
 
+  constructor(private translationService: TranslationService) {
+    this.translationService.selectedLanguage$.subscribe(lang => {
+      this.selectedLanguage = lang;
+    });
+  }
+
+  changeLanguage(lang: string) {
+    this.translationService.changeLanguage(lang);
+  }
 }

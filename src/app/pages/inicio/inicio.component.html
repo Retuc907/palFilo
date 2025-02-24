@@ -1,29 +1,28 @@
 <div class="app-container">
-    <!-- Sidebar -->
-    <nav class="sidebar">
-      <ul class="nav-menu">
-        <a class="nav-menu-logo" href="">
-          <img   src="/assets/images/palFilo-logo.png" alt="" >
-        </a>
-        <!-----------Home----------->
-        <div routerLink="/app-inicio">
-        <img src="/assets/images/home.png" alt="">
-        <li><a >{{ 'MENU.HOME' | translate }}</a></li>
-        </div>
-          <!-----------reseñas----------->
-        <div routerLink="/app-resenas">
-          <img src="/assets/images/comentarios.png" alt="">
-          <li>{{ 'MENU.REVIEWS' | translate }}</li>
-        </div>
-          <!-----------Preferidos----------->
-        <div routerLink="/app-preferidos">
-        <img src="/assets/images/corazon.png" alt="">
-        <li>{{ 'MENU.FAVORITES' | translate }}</li>
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <ul class="nav-menu">
+      <a class="nav-menu-logo" href="">
+        <img   src="/assets/images/palFilo-logo.png" alt="" >
+      </a>
+      <!-----------Home----------->
+      <div routerLink="/app-inicio">
+      <img src="/assets/images/home.png" alt="">
+      <li><a >Inicio</a></li>
       </div>
+        <!-----------reseñas----------->
+      <div routerLink="/app-resenas">
+        <img src="/assets/images/comentarios.png" alt="">
+        <li><a>Reseñas</a></li>
+      </div>
+        <!-----------Preferidos----------->
+      <div routerLink="/app-preferidos">
+      <img src="/assets/images/corazon.png" alt="">
+      <li><a >Preferidos</a></li>
+    </div>
 
-      </ul>
-    </nav>
-  
+    </ul>
+  </nav>
     <!-- Contenido principal -->
     <div class="main-content">
       <!-- Header superior -->
@@ -61,9 +60,7 @@
       <div class="card">
         <app-card-restaurantes></app-card-restaurantes>
       </div>
-       <div class="card">
-        <app-card-restaurantes></app-card-restaurantes>
-      </div>
+      
     
         
         <!-- Más cards aquí -->

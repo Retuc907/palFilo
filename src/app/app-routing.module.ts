@@ -7,12 +7,14 @@ import { PreferidosComponent } from './pages/preferidos/preferidos.component';
 import { ResenasComponent } from './pages/resenas/resenas.component';
 
 
+
 const routes: Routes = [
   {path: '',component:InicioComponent},
   {path: 'app-inicio',component:InicioComponent},
   {path: 'app-login',component:LoginComponent},
   {path: 'app-preferidos',component:PreferidosComponent},
   {path: 'app-resenas',component:ResenasComponent},
+
 ];
 
 @NgModule({

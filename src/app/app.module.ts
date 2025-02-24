@@ -12,6 +12,7 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {provideAuth, getAuth} from '@angular/fire/auth'
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -28,6 +29,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     PreferidosComponent,
     CardRestaurantesComponent,
     NavbarComponent,
+
     
     
   ],
