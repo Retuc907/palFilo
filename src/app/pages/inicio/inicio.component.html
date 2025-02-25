@@ -8,18 +8,22 @@
       <!-----------Home----------->
       <div routerLink="/app-inicio">
       <img src="/assets/images/home.png" alt="">
-      <li><a >Inicio</a></li>
+      <li><a >{{ 'MENU.HOME' | translate }}</a></li>
       </div>
         <!-----------reseñas----------->
       <div routerLink="/app-resenas">
         <img src="/assets/images/comentarios.png" alt="">
-        <li><a>Reseñas</a></li>
+        <li><a>{{ 'MENU.REVIEWS' | translate }}</a></li>
       </div>
         <!-----------Preferidos----------->
       <div routerLink="/app-preferidos">
       <img src="/assets/images/corazon.png" alt="">
-      <li><a >Preferidos</a></li>
+      <li><a >{{ 'MENU.FAVORITES' | translate }}</a></li>
+
+      
     </div>
+    <button class="btn btn-primary" (click)="logout()">salir</button>
+
 
     </ul>
   </nav>

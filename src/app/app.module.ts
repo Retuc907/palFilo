@@ -1,11 +1,10 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ResenasComponent } from './pages/resenas/resenas.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
-import { LoginComponent } from './pages/login/login.component';
 import { PreferidosComponent } from './pages/preferidos/preferidos.component';
 import { CardRestaurantesComponent } from './component/card-restaurantes/card-restaurantes.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
@@ -13,6 +12,12 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {provideAuth, getAuth} from '@angular/fire/auth'
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { RegisterComponent } from './component/register/register.component';
+import { LoginComponent } from './component/login/login.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -25,10 +30,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     ResenasComponent,
     InicioComponent,
-    LoginComponent,
     PreferidosComponent,
     CardRestaurantesComponent,
     NavbarComponent,
+    RegisterComponent,
+    LoginComponent
 
     
     
@@ -45,6 +51,14 @@ export function HttpLoaderFactory(http: HttpClient) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
+    }),
+    provideFirebaseApp (() => initializeApp(environment.firebaseConfig)),
+    provideAuth (() => getAuth()),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
     }),
     
 
