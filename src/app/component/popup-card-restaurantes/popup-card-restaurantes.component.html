@@ -1,0 +1,91 @@
+  <div class="popup-overlay" >
+      <div class="container">
+              <div class="element element1">
+              <!--<h2>{{ restaurante.nombre }}</h2>  
+                  <p>Categoría: {{ restaurante.categoria }}</p>
+                  <p>★ {{ restaurante.calificacion }}</p>-->
+                  <h2> Jac's burguer </h2>
+                  <p>comida rapida</p>
+                  <p>★ 4.8</p>
+                  <button class="cerrar" (click)="cerrarPopup()">✖</button>
+              </div>
+              
+              <div class="element element2">
+                <img src="../../../assets/images/jacs-burguer.jpg" alt="">
+                <img src="../../../assets/images/jacs-burguer.jpg" alt="">
+                <img src="../../../assets/images/jacs-burguer.jpg" alt="">
+               
+                <!--  <img [src]="restaurante.imagen" alt="{{ restaurante.nombre }}"> -->
+              </div>
+              
+              <div class="element element3">
+                <div class="comentarios">
+                <app-comentario></app-comentario>
+                <app-comentario></app-comentario>
+                <app-comentario></app-comentario>
+            </div>
+
+
+
+                <div class="calificacion">
+                    <p class="texto">Calificar <br> lugar</p>
+                    <div class="estrellas">
+                        ★ ★ ★ ★ ★
+                    </div>
+                </div>
+
+                <div class="botones">
+                    <button class="botones-agregar">Agregar una reseña</button>
+                    <button class="botones-lugar">ir al lugar</button>
+                </div>
+
+
+                <!--
+                  <p>Categoría: {{ restaurante.categoria }}</p>
+                  <p>Calificación: ★ {{ restaurante.calificacion }}</p>-->
+              </div>
+              
+              <div class="element element4">
+                    <div class="info-restaurante">
+                        <img src="../../../assets/icons/icon-128x128.png" alt="">
+                            <h3>Medios de pago</h3>
+                            <p>Efectivo, Nequi, Daviplata, transferencias</p>
+                    </div>
+
+                    <div class="info-restaurante">
+                        <img src="../../../assets/icons/icon-128x128.png" alt="">
+                            <h3>Rango de precios</h3>
+                            <p>Desde: $10.000 <br>
+                                Hasta: $60.000 </p>
+                    </div>
+
+                    <div class="info-restaurante">
+                        <img src="../../../assets/icons/icon-128x128.png" alt="">
+                            <h3>Ubicación</h3>
+                            <p>AV.3C #60d 34</p>
+                    </div>
+
+                    <div class="info-restaurante">
+                        <img src="../../../assets/icons/icon-128x128.png" alt="">
+                            <h3>Horario</h3>
+                            <p>L - V:  11:00-21:00 <br>
+                                D - F:  11:00-21:00</p>
+                    </div>
+
+                    <div class="info-restaurante">
+                        <img src="../../../assets/icons/icon-128x128.png" alt="">
+                            <h3>Menú</h3>
+                    </div>
+
+                    <div class="info-restaurante">
+                        <img src="../../../assets/icons/icon-128x128.png" alt="">
+                            <h3>Calificación</h3>
+                            <p>4.5 <br>
+                                ★ ★ ★ ★ ★
+                            </p>
+                            
+                    </div>
+               
+              </div>
+          </div>
+  </div>

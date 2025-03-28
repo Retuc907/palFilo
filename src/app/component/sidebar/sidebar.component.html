@@ -1,0 +1,44 @@
+<!-- Sidebar -->
+ 
+<nav class="sidebar">
+  <ul class="nav-menu">
+    <!-- Logo-->
+    <div class="nav-menu-logo">
+      <img src="/assets/images/palFilo-logo.png" alt="Logo">
+      <hr class="divider">
+    </div>
+   
+
+    <!-- Home -->
+    <a routerLink="/app-inicio" class="nav-item">
+      <img src="/assets/images/home.png" alt="">
+      <li>{{ 'MENU.HOME' | translate }}</li>
+    </a>
+
+    <!-- Descuentos -->
+    <a routerLink="/app-promociones" class="nav-item">
+      <img src="/assets/images/descuento.png" alt="">
+      <li>{{ 'MENU.DISCOUNTS' | translate }}</li>
+    </a>
+
+    <!-- Reseñas -->
+    <a routerLink="/app-resenas" class="nav-item">
+      <img src="/assets/images/comentarios.png" alt="">
+      <li>{{ 'MENU.REVIEWS' | translate }}</li>
+    </a>
+
+    <!-- Preferidos -->
+    <a routerLink="/app-preferidos" class="nav-item">
+      <img src="/assets/images/corazon.png" alt="">
+      <li>{{ 'MENU.FAVORITES' | translate }}</li>
+    </a>
+
+    <!-- Busqueda -->
+    <a routerLink="/app-busqueda" class="nav-item">
+      <img src="/assets/images/buscar.png" alt="">
+      <li>{{ 'MENU.SEARCH' | translate }}</li>
+    </a>
+
+    <button class="btn logout-button" (click)="logout()">Salir</button>
+  </ul>
+</nav>

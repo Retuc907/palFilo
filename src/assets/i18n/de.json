@@ -2,8 +2,10 @@
     "APP_NAME": "Pal FiLo",
     "MENU": {
       "HOME": "Startseite",
+      "DISCOUNTS": "RABATTE",
       "REVIEWS": "Bewertungen",
-      "FAVORITES": "Favoriten"
+      "FAVORITES": "Favoriten",
+      "SEARCH": "Suchen"
     },
     "SEARCH_PLACEHOLDER": "Suchen...",
     "USER_PROFILE": "Benutzerprofil",
@@ -13,7 +15,7 @@
     "SELECT_LANGUAGE": "Wählen Sie eine Sprache",
     "CARD": {
       "CATEGORY": "kategorie: schnelles Essen",
-      "RATING": "Bewertung: 4.8"
+      "RATING": "Bewertung: "
     }
   }
   

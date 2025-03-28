@@ -42,5 +42,28 @@ export class InicioComponent {
       })
       .catch(error => console.log(error));
   }
+
+
   
+  restaurantes = [
+    { nombre: 'Jac’s Burguer', categoria: 'Comida rápida', calificacion: 4.8, imagen: '../../../assets/images/jacs-burguer.jpg' },
+    { nombre: 'Pizza House', categoria: 'Italiana', calificacion: 4.5, imagen: '../../../assets/images/palFilo-logo.png' },
+    { nombre: 'Jac’s Burguer', categoria: 'Comida rápida', calificacion: 4.8, imagen: '../../../assets/images/jacs-burguer.jpg' },
+    { nombre: 'Pizza House', categoria: 'Italiana', calificacion: 4.5, imagen: '../../../assets/images/palFilo-logo.png' },
+    { nombre: 'Jac’s Burguer', categoria: 'Comida rápida', calificacion: 4.8, imagen: '../../../assets/images/jacs-burguer.jpg' },
+    { nombre: 'Pizza House', categoria: 'Italiana', calificacion: 4.5, imagen: '../../../assets/images/palFilo-logo.png' }
+
+  ];
+
+  restauranteSeleccionado: any = null;
+
+  seleccionarRestaurante(restaurante: any) {
+    this.restauranteSeleccionado = restaurante;
   }
+
+  cerrarPopup() {
+    this.restauranteSeleccionado = null;
+  }
+}
+
+

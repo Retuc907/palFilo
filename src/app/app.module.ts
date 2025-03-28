@@ -7,7 +7,7 @@ import { ResenasComponent } from './pages/resenas/resenas.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { PreferidosComponent } from './pages/preferidos/preferidos.component';
 import { CardRestaurantesComponent } from './component/card-restaurantes/card-restaurantes.component';
-import { NavbarComponent } from './component/navbar/navbar.component';
+import { SidebarComponent } from './component/sidebar/sidebar.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -17,6 +17,11 @@ import { environment } from '../environments/environment';
 import { RegisterComponent } from './component/register/register.component';
 import { LoginComponent } from './component/login/login.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { HeaderComponent } from './component/header/header.component';
+import { PromocionesComponent } from './pages/promociones/promociones.component';
+import { BusquedaComponent } from './pages/busqueda/busqueda.component';
+import { PopupCardRestaurantesComponent } from './component/popup-card-restaurantes/popup-card-restaurantes.component';
+import { ComentarioComponent } from './component/comentario/comentario.component';
 
 
 
@@ -28,13 +33,18 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
+    SidebarComponent,
     ResenasComponent,
     InicioComponent,
     PreferidosComponent,
     CardRestaurantesComponent,
-    NavbarComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    HeaderComponent,
+    PromocionesComponent,
+    BusquedaComponent,
+    PopupCardRestaurantesComponent,
+    ComentarioComponent
 
     
     

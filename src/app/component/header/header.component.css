@@ -1,0 +1,54 @@
+
+/* Header */
+
+.main-content--header {
+  justify-content: space-between;
+    background-color: #861F1B;
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    
+  
+    gap: 10px;
+  }
+  
+  .main-content--header--app-name h1 {
+    color: #ffffff;
+    font-size: 34px;
+    font-family: 'Lobster', cursive !important;
+  }
+  .main-content--header div img {
+  height: 30px;
+  }
+
+  .main-content--header--options{
+    display: flex;
+    gap: 10px;
+  }
+  
+select {
+    text-align: center;
+    color: #861F1B;
+    border-radius: 5px;
+    width: 150px;
+    height: 40px;
+    border: none;
+  }
+button {
+    height: 40px;
+    background-color: #ffffff;
+    color: #861F1B;
+    border: none;
+}
+  
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+  
+    .header {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    
+      
+  }

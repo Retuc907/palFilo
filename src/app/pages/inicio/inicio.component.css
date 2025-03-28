@@ -1,10 +1,11 @@
-
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Contenedor principal */
 .app-container {
   display: flex;
   min-height: 100vh;
@@ -12,144 +13,66 @@
 
 /* Sidebar */
 .sidebar {
-  width: 10%;
-  min-width: 100px;
+  width: 12%;
+  min-width: 120px;
+  height: 100vh;
   background-color: #F9912E;
   color: white;
-  padding: 20px;
-  
 }
 
-.nav-menu {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  
-}
-
-.nav-menu li {
-  text-align: center;
-}
-
-.nav-menu a {
- 
-  color: white;
-  text-decoration: none;
-}
-
-.nav-menu img {
-  width: 50%;
-
-}
-
-
-.nav-menu-logo img {
-  width: 100%;
-  padding-bottom: 50px;
-
- 
-}
-
-.nav-menu div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 15px 0 15px 0 ;
-  border-radius: 5px;
-  transition: all 0.3s ease-in-out;
-}
-
-
-
-/* 🎯 Efecto al hacer hover */
-.nav-menu div:hover {
-  background-color: rgb(111, 6, 6);
-  border-color: #F9912E;
-  transform: scale(1.1); /* Hace un pequeño zoom */
-}
-
-.nav-menu div:hover a {
-  color: white; /* Cambia el color del texto */
-}
-
-/* Contenido principal */
+/* Contenedor principal (ocupa el espacio restante) */
 .main-content {
   flex: 1;
   display: flex;
   flex-direction: column;
+  height: 100vh; /* Que ocupe toda la pantalla */
 }
 
-/* Header */
-.main-content--header {
-  background-color: #861F1B;
-  padding: 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+/* Header (se fija arriba y no se superpone) */
 
-.main-content--header--app-name h1 {
-  color: white;
-  font-size: 34px;
-  font-family: 'Lobster', cursive !important;
-}
-.main-content--header div img {
-height: 30px;
-}
-
-.search input {
-  padding: 8px;
-  width: 200px;
-  border-radius: 4px;
-  border: none;
-}
-
-/* Área de cards */
+/* Área de cards (ocupa el espacio restante bajo el header) */
 .card-area {
-  padding: 10px; /* Reducir padding para compactar más */
   flex-grow: 1;
-  overflow-y: auto; /* Agrega scroll interno */
-  height: calc(100vh - 80px); /* Altura total menos el header */
+  overflow-y: auto; /* Permite scroll */
+  padding: 10px;
+  height: calc(100vh - 80px); /* Resta la altura del header */
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Centrar horizontalmente */
-  align-items: flex-start; /* Alinear las cards al inicio */
-  gap: 50px  8%;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px 8%;
 }
 
-.card-area img {
-  height: 100%;
-}
-
-
+/* Ajustes para las cards */
 .card {
-  
   border: none;
   padding: 15px;
-  height:auto; 
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;  
   align-items: center;
   justify-content: center;
-  overflow: hidden; /* Evita que la imagen se salga del div */
+  overflow: hidden;
+  gap: 20px;
   transition: all 0.3s ease-in-out;
+  
 }
 
 .card:hover {
   background-color: white;
   border-color: #F9912E;
-  transform: scale(1.1);
+ 
+}
+  
+.restaurant-list {
+  display: flex; /* Activa el diseño flexible */
+  flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea si no caben */
+  justify-content: center; /* Centra los elementos horizontalmente */
+  gap: 20px; /* Espacio entre los elementos */
 }
 
 
-.card img {
-  object-fit: cover;
- width: 100%;
- height: 100%;
-}
-
-/* Media queries para responsividad */
+/* Responsividad */
 @media (max-width: 768px) {
   .sidebar {
     width: 60px;
@@ -157,29 +80,14 @@ height: 30px;
     padding: 10px;
   }
 
-  .header {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .search input {
-    width: 100%;
-  }
-
   .card-area {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 30px;
   }
-
-  .card img {
-      height: auto; /* Se adapta al contenido sin cortarse */
-      max-height: 200px; /* Evita que la imagen crezca demasiado */
-      object-fit: contain; /* Mantiene la imagen visible sin recortes */
-    }
-    
 }
 
 @media (max-width: 480px) {
   .card-area {
+    display: grid;
     grid-template-columns: 1fr;
   }
 }

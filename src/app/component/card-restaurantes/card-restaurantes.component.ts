@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-card-restaurantes',
@@ -12,6 +12,10 @@ export class CardRestaurantesComponent {
   @Input() calificacion!: number;
   @Input() imagen!: string;
  
- 
+  @Output() seleccionRestaurante = new EventEmitter<void>();
+
+  abrirPopup() {
+    this.seleccionRestaurante.emit();
+  }
 
 }
