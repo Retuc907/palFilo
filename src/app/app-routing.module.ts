@@ -13,6 +13,7 @@ import { canActivate,redirectUnauthorizedTo} from '@angular/fire/auth-guard';
 import { HeaderComponent } from './component/header/header.component';
 import { PopupCardRestaurantesComponent } from './component/popup-card-restaurantes/popup-card-restaurantes.component';
 import { ComentarioComponent } from './component/comentario/comentario.component';
+import { CardPromocionesComponent } from './component/card-promociones/card-promociones.component';
 
 
 
@@ -30,7 +31,8 @@ const routes: Routes = [
   {path: 'app-header', component:HeaderComponent},
   {path: 'app-busqueda', component:BusquedaComponent},
   {path: 'app-popup-card-restaurantes',component:PopupCardRestaurantesComponent},
-  {path: 'app-comentario',component:ComentarioComponent}
+  {path: 'app-comentario',component:ComentarioComponent},
+  {path: 'app-card-promociones', component:CardPromocionesComponent}
 
 ];
 

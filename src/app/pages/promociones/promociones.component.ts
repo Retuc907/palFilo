@@ -9,6 +9,40 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./promociones.component.css']
 })
 export class PromocionesComponent {
+   promociones = [
+    {
+      nombre: 'Pal Filo',
+      duracion: '2 semanas',
+      ubicacion: 'Centro Comercial XYZ',
+      descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat..',
+      imagen: '../../../assets/images/jacs-burguer.jpg'
+    },
+    {
+      nombre: 'Sabores Andinos',
+      duracion: '1 mes',
+      ubicacion: 'Av. Principal 123',
+      descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      imagen: '../../../assets/images/jacs-burguer.jpg'
+    },
+    {
+      nombre: 'Pal Filo',
+      duracion: '2 semanas',
+      ubicacion: 'Centro Comercial XYZ',
+      descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      imagen: '../../../assets/images/jacs-burguer.jpg'
+    },
+    {
+      nombre: 'Sabores Andinos',
+      duracion: '1 mes',
+      ubicacion: 'Av. Principal 123',
+      descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      imagen: '../../../assets/images/jacs-burguer.jpg'
+    }
+  ];
+
+  onSeleccionarRestaurante() {
+    console.log('Restaurante seleccionado');
+  }
 
   selectedLanguage = 'es'; // Idioma por defecto
   languages = [

@@ -22,6 +22,7 @@ import { PromocionesComponent } from './pages/promociones/promociones.component'
 import { BusquedaComponent } from './pages/busqueda/busqueda.component';
 import { PopupCardRestaurantesComponent } from './component/popup-card-restaurantes/popup-card-restaurantes.component';
 import { ComentarioComponent } from './component/comentario/comentario.component';
+import { CardPromocionesComponent } from './component/card-promociones/card-promociones.component';
 
 
 
@@ -44,7 +45,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     PromocionesComponent,
     BusquedaComponent,
     PopupCardRestaurantesComponent,
-    ComentarioComponent
+    ComentarioComponent,
+    CardPromocionesComponent
 
     
     

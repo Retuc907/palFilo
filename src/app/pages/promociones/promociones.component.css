@@ -1,4 +1,5 @@
 /* Reset básico */
+/*#ff8c00, #FFC107, #861F1B, #CF0404*/
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +8,7 @@
   
   /* Contenedor principal */
   .app-container {
+
     display: flex;
     min-height: 100vh;
   }
@@ -25,6 +27,31 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+    text-align: center;
+  color: #CF0404;
     height: 100vh; /* Que ocupe toda la pantalla */
+  }
+  .card-promociones {
+    display: flex;
+    flex-direction: row;
+   justify-content: space-around;
+   overflow-y: auto;
+   flex-wrap: wrap;  
+   gap: 30px;
+
+   padding:30px;
+    width: 100%;
+    height: 100%;
+  }
+
+  .card-promociones :hover {
+    transform: scale(1.1);
+    transition: all 0.4s ease-in-out;
+  }
+  
+  .card:hover {
+    background-color: white;
+    border-color: #F9912E;
+   
   }
   
