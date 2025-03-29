@@ -1,13 +1,19 @@
-<section class="card">
-    <div class="profile">
-        <img src="../../../assets/images/usuario.png" alt="Usuario">
-        <p><strong>Nombre <br> usuario</strong>
-        </p>
+<div class="container" >
+    <section class="card"  *ngFor="let comentario of comentarios">
+        <div class="profile" >
+            <img src="../../../assets/images/usuario.png" alt="Usuario">
+            
+            <p><strong>{{comentario.nombreRestaurante}} <br> usuario</strong>
+            </p>
+            
+        </div>
+        <div class="comentario" >
+        <p><strong>{{comentario.nombreUsuario}}</strong> </p>
+        <p>{{comentario.resena}}</p>
         
-    </div>
-    <div class="comentario">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliquaLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.m ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliquaLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    </div>
-
-   
-</section>
+        
+        </div>
+    
+    
+    </section>
+</div>

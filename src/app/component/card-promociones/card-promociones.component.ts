@@ -13,7 +13,7 @@ export class CardPromocionesComponent {
   @Input() imagen!: string;
  
   @Output() seleccionRestaurante = new EventEmitter<void>();
-
+  
   abrirPopup() {
     this.seleccionRestaurante.emit();
   }

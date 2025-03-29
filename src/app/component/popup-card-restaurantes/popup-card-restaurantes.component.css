@@ -91,7 +91,6 @@ gap: 10px;
 .comentarios {
   overflow: auto;
   height: 60%;
-  background-color: #861F1B;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.34);
   border-radius: 10px;
 }

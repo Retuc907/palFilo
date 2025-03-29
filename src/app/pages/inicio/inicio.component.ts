@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { IListaRestaurantes } from 'src/app/models/lista-restaurantes.model';
+import { ListaRestaurantesService } from 'src/app/services/lista.restaurantes.service';
 import { UserService } from 'src/app/services/user.service';
 
 
@@ -21,14 +23,35 @@ export class InicioComponent {
     { code: 'de', label: 'Deutsch' }
   ];
 
-  constructor(private translate: TranslateService,
+   restaurantes: IListaRestaurantes[] = [];
+   restauranteSeleccionado: IListaRestaurantes | null = null; // Restaurante seleccionado
+
+   
+  constructor(
+    private translate: TranslateService,
     private _userService: UserService,
-    private _router: Router
-  ) {
+    private _router: Router,
+    private restauranteService: ListaRestaurantesService
+    
+  ) 
+  
+  
+  
+  {
     this.translate.setDefaultLang(this.selectedLanguage);
     this.translate.use(this.selectedLanguage);
   
   }
+
+  abrirPopupRestaurante(restaurante: IListaRestaurantes) {
+    console.log("Restaurante seleccionado:", restaurante);
+    this.restauranteSeleccionado = restaurante; // Guardamos el restaurante seleccionado
+  }
+
+  cerrarPopup() {
+    this.restauranteSeleccionado = null;
+  }
+
 
   changeLanguage(lang: string) {
     this.selectedLanguage = lang;
@@ -44,26 +67,22 @@ export class InicioComponent {
   }
 
 
-  
-  restaurantes = [
-    { nombre: 'Jac’s Burguer', categoria: 'Comida rápida', calificacion: 4.8, imagen: '../../../assets/images/jacs-burguer.jpg' },
-    { nombre: 'Pizza House', categoria: 'Italiana', calificacion: 4.5, imagen: '../../../assets/images/palFilo-logo.png' },
-    { nombre: 'Jac’s Burguer', categoria: 'Comida rápida', calificacion: 4.8, imagen: '../../../assets/images/jacs-burguer.jpg' },
-    { nombre: 'Pizza House', categoria: 'Italiana', calificacion: 4.5, imagen: '../../../assets/images/palFilo-logo.png' },
-    { nombre: 'Jac’s Burguer', categoria: 'Comida rápida', calificacion: 4.8, imagen: '../../../assets/images/jacs-burguer.jpg' },
-    { nombre: 'Pizza House', categoria: 'Italiana', calificacion: 4.5, imagen: '../../../assets/images/palFilo-logo.png' }
+  ngOnInit(): void {
+    this.restauranteService.getRestaurantes().subscribe(data => {
+      this.restaurantes = data;
+    });
+  }
 
-  ];
 
-  restauranteSeleccionado: any = null;
+
 
   seleccionarRestaurante(restaurante: any) {
     this.restauranteSeleccionado = restaurante;
   }
 
-  cerrarPopup() {
-    this.restauranteSeleccionado = null;
-  }
+
+
+ 
 }
 
 

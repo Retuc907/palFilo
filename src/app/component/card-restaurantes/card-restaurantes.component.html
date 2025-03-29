@@ -1,9 +1,9 @@
 <div class="restaurant-card" (click)="abrirPopup()">
     <div class="restaurant-image">
-      <img [src]="imagen" alt="{{nombre}}">
+      <img *ngFor="let img of imagenes" [src]="img" alt="{{ nombre }}">
     </div>
     <div class="restaurant-info">
-      <h3>{{nombre}}</h3>
+      <h3>{{ nombre }}</h3>
       <p class="categoria">{{ 'CARD.CATEGORY' | translate }} {{categoria}} </p>
       <div class="rating-container">
         <span class="rating">★ {{ 'CARD.RATING' | translate }} {{calificacion}}</span>

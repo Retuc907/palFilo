@@ -11,22 +11,21 @@
     
     <!-- Área de cards -->
     <div class="restaurant-list">
-      <div class="card">
-        <app-card-restaurantes
-        *ngFor="let restaurante of restaurantes"
-        [nombre]="restaurante.nombre"
-        [categoria]="restaurante.categoria"
-        [calificacion]="restaurante.calificacion"
-        [imagen]="restaurante.imagen"
-        (seleccionRestaurante)="seleccionarRestaurante(restaurante)">>
-    
+      <div class="card" *ngFor="let restaurante of restaurantes">
+        <app-card-restaurantes 
+          [nombre]="restaurante.nombre"
+          [categoria]="restaurante.categoria"
+          [calificacion]="restaurante.calificacion"
+          [imagenes]="restaurante.imagenes"
+          (seleccionRestaurante)="abrirPopupRestaurante(restaurante)">
         </app-card-restaurantes>
       </div>
 
-      <app-popup-card-restaurantes *ngIf="restauranteSeleccionado"
-  [restaurante]="restauranteSeleccionado"
-  (cerrar)="cerrarPopup()">
-</app-popup-card-restaurantes>
+      <app-popup-card-restaurantes 
+      *ngIf="restauranteSeleccionado"
+      [restaurante]="restauranteSeleccionado"
+      (cerrar)="cerrarPopup()">
+      </app-popup-card-restaurantes>
 
 
     </div>
