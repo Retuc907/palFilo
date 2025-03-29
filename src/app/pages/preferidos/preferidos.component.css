@@ -27,3 +27,24 @@
   flex-direction: column;
   height: 100vh; /* Que ocupe toda la pantalla */
 }
+
+.restaurant-list {
+  display: flex; /* Activa el diseño flexible */
+  flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea si no caben */
+  justify-content: center; /* Centra los elementos horizontalmente */
+  gap: 20px; /* Espacio entre los elementos */
+}
+.card {
+  border: none;
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;  
+  width: 20%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  gap: 20px;
+  transition: all 0.3s ease-in-out;
+  
+}

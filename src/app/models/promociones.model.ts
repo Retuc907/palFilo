@@ -1,7 +1,7 @@
 export interface IPromociones {
  
     id: number;
-    nombre: string;
+    nombreRestautante: string;
     duracion: string;
     descripcion: string;
     imagenes: string[]; 

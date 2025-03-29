@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IListaRestaurantes } from 'src/app/models/lista-restaurantes.model';
+import { LikesService } from 'src/app/services/likes.service';
 import { ListaRestaurantesService } from 'src/app/services/lista.restaurantes.service';
 
 @Component({
@@ -12,18 +13,27 @@ export class PopupCardRestaurantesComponent implements OnInit {
   @Output() cerrar = new EventEmitter<void>();
   @Input() imagenes: string[] = [];
 
+  likes: number = 0; 
+
 
   restaurantes: IListaRestaurantes[] = [];
 
-  constructor(private restauranteService: ListaRestaurantesService) {}
+  constructor(
+    private restauranteService: ListaRestaurantesService,
+  ) {}
 
   ngOnInit(): void {
     this.restauranteService.getRestaurantes().subscribe(data => {
       this.restaurantes = data;
     });
+
   }
 
   cerrarPopup() {
     this.cerrar.emit();
   }
+
+
+
+
 }

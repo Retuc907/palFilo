@@ -11,11 +11,10 @@
     <section class="card-promociones">
       <app-card-promociones 
         *ngFor="let promo of promociones"
-        [nombre]="promo.nombre"
+        [nombre]="promo.nombreRestautante"
         [duracion]="promo.duracion"
         [descripcion]="promo.descripcion"
-        [imagen]="promo.imagen"
-        (seleccionRestaurante)="onSeleccionarRestaurante()">
+        [imagen]="promo.imagenes[0]">
       </app-card-promociones>
     </section>
     

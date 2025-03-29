@@ -12,9 +12,7 @@ export class CardPromocionesComponent {
   @Input() descripcion!: string;
   @Input() imagen!: string;
  
-  @Output() seleccionRestaurante = new EventEmitter<void>();
+
   
-  abrirPopup() {
-    this.seleccionRestaurante.emit();
-  }
+
 }
