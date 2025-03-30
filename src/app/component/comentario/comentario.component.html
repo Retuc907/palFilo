@@ -1,4 +1,4 @@
-<div class="container" >
+<div  [ngClass]="{'row-style': displayStyle === 'row', 'column-style': displayStyle === 'column'}">
     <section class="card"  *ngFor="let comentario of comentarios">
         <div class="profile" >
             <img src="../../../assets/images/usuario.png" alt="Usuario">

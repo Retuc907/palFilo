@@ -11,6 +11,9 @@ export class ComentarioComponent {
   @Input() nombreRestaurante!: string;
   @Input() resena!: string;
 
+  @Input() displayStyle: 'row' | 'column' = 'column';  // Valor por defecto 'column'
+
+
  
    
     @Output() seleccionRestaurante = new EventEmitter<void>();

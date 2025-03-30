@@ -50,6 +50,12 @@
   height: 24px;
   cursor: pointer;
 }
+.like{
+  border: none;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
 
 /* Media queries para responsividad */
 @media (max-width: 768px) {

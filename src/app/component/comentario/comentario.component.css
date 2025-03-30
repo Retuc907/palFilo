@@ -1,18 +1,17 @@
-/**#ff8c00, #FFC107, #861F1B, #CF0404**/
-.container{
+.container {
     display: flex;
     flex-direction: column;
     gap: 20px;
     height: 100%;
-    
 }
+
 .card {
     display: flex;
     flex-direction: row;
     align-items: center;
-    border: 0px solid ;
+    border: 0px solid;
     width: 100%;
-    height: 100%;
+    height: auto;
     padding: 10px;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.34);
 }
@@ -22,14 +21,17 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-right: 10px;
+    width: 150px; /* Ancho fijo para que no afecte el diseño */
+    min-width: 150px; /* Evita que se reduzca demasiado */
     color: #CF0404;
 }
-.profile p{
-    font-size: 10px;
-}
-p{
-    font-size: 8px;
+
+.profile p {
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%; /* Evita que el nombre sea más ancho de lo permitido */
 }
 
 .profile img {
@@ -40,16 +42,66 @@ p{
 }
 
 .content {
-    flex: 1; /* Ocupa el espacio disponible */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-
-.icon {
-    font-size: 20px;
-    margin-left: 10px;
-}
-
 
 .comentario {
-    height: 80px;
-    overflow: auto;
+    height: auto;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+.row-style {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 10px;
+    gap: 30px;
+}
+
+.row-style .card {
+    width: 48%;
+    padding: 10px;
+    gap: 30px;
+    font-size: 20px;
+}
+
+.column-style {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.column-style .card {
+    font-size: 10px; /* Reduce el tamaño del texto en general */
+    flex-direction: row; /* Asegura que siga en fila */
+    align-items: flex-start; /* Alinea los elementos arriba */
+    padding: 8px;
+}
+
+.column-style .profile {
+    width: 100px; /* Reduce el ancho del perfil */
+    min-width: 100px;
+}
+
+.column-style .profile img {
+    width: 40px; /* Imagen más pequeña */
+    height: 40px;
+}
+
+.column-style .profile p {
+    font-size: 10px;
+    margin: 2px 0; /* Reduce el margen del nombre */
+}
+
+.column-style .comentario {
+    flex-grow: 1; /* Permite que el comentario ocupe más espacio */
+    padding-left: 10px; /* Da espacio entre el perfil y el texto */
+    text-align: justify; /* Acomoda el texto */
 }

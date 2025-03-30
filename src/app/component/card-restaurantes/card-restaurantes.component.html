@@ -3,7 +3,7 @@
       <img *ngFor="let img of imagenes" [src]="img" alt="{{ nombre }}">
     </div>
     <div class="restaurant-info">
-      <button (click)="darLike($event)">❤️ {{ likes }}</button>
+      <button class="like" (click)="darLike($event)">❤️ {{ likes }}</button>
 
       <h3>{{ nombre }}</h3>
       <p class="categoria">{{ 'CARD.CATEGORY' | translate }} {{categoria}} </p>
