@@ -40,20 +40,20 @@ export class CardRestaurantesComponent {
   ) {}
   
     ngOnInit(): void {
-      if (!this.restaurante) {
-        this.restaurante = {
-          id: this.id,
-          nombre: this.nombre,
-          categoria: this.categoria,
-          calificacion: this.calificacion,
-          imagenes: this.imagenes || [],
-          mediosPago: this.mediosPago || "No disponible",
-          rangoPrecios: this.rangoPrecios || { desde: 0, hasta: 0 },
-          ubicacion: this.ubicacion || "Ubicación no disponible",
-          horario: this.horario || { lunesViernes: "No disponible", domingoFestivos: "No disponible" },
-          menu: this.menu || "#"
-        };
-      }
+        if (!this.restaurante) {
+      this.restaurante = {
+        id: this.id,
+        nombre: this.nombre,
+        categoria: this.categoria,
+        calificacion: this.calificacion,
+        imagenes: this.imagenes || [],
+        mediosPago: this.mediosPago || "No disponible",
+        rangoPrecios: this.rangoPrecios || { desde: 0, hasta: 0 },
+        ubicacion: this.ubicacion || "Ubicación no disponible",
+        horario: this.horario || { lunesViernes: "No disponible", domingoFestivos: "No disponible" },
+        menu: this.menu || "#"
+      };
+    }
 
 
 

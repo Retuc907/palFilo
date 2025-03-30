@@ -13,6 +13,7 @@
     <div class="restaurant-list">
       <div class="card" *ngFor="let restaurante of restaurantes">
         <app-card-restaurantes 
+          [id]="restaurante.id" 
           [nombre]="restaurante.nombre"
           [categoria]="restaurante.categoria"
           [calificacion]="restaurante.calificacion"
