@@ -1,0 +1,8 @@
+{
+    "/api": {
+      "target": "https://pal-filo-backend.onrender.com/api",
+      "secure": false,
+      "changeOrigin": true
+    }
+  }
+  

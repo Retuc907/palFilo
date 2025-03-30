@@ -30,39 +30,38 @@
       
       <div class="element element4">
         <div class="info-restaurante">
-          <img src="../../../assets/icons/icon-128x128.png" alt="">
+          <img src="../../../assets/icons/mediosPago.png" alt="">
           <h3>Medios de pago</h3>
           <p>{{ restaurante.mediosPago }}</p>
         </div>
   
         <div class="info-restaurante">
-          <img src="../../../assets/icons/icon-128x128.png" alt="">
+          <img src="../../../assets/icons/rangoPrecios.png" alt="">
           <h3>Rango de precios</h3>
           <p>Desde: ${{ restaurante.rangoPrecios.desde }} <br> Hasta: ${{ restaurante.rangoPrecios.hasta }}</p>
         </div>
   
         <div class="info-restaurante">
-          <img src="../../../assets/icons/icon-128x128.png" alt="">
+          <img src="../../../assets/icons/ubicacion.png" alt="">
           <h3>Ubicación</h3>
           <p>{{ restaurante.ubicacion }}</p>
         </div>
   
         <div class="info-restaurante">
-          <img src="../../../assets/icons/icon-128x128.png" alt="">
+          <img src="../../../assets/icons/horario.png" alt="">
           <h3>Horario</h3>
           <p>L - V: {{ restaurante.horario.lunesViernes }} <br> D - F: {{ restaurante.horario.domingoFestivos }}</p>
         </div>
   
         <div class="info-restaurante">
-          <img src="../../../assets/icons/icon-128x128.png" alt="">
-          <h3>Menú</h3>
-          <p><a href="{{ restaurante.menu }}" target="_blank">Ver menú</a></p>
+          <img src="../../../assets/icons/menu.png" alt="">
+          <h3><a href="{{ restaurante.menu }}" target="_blank">Ver menú</a></h3>
         </div>
   
-        <div class="info-restaurante">
-          <img src="../../../assets/icons/icon-128x128.png" alt="">
+        <div class="info-restaurante" >
           <h3>Calificación</h3>
-          <p>{{ restaurante.calificacion }} <br> ★ ★ ★ ★ ★</p>
+
+          <p class="calificacion-numero">{{ restaurante.calificacion }} </p>★ ★ ★ ★ ★
         </div>
       </div>
     </div>

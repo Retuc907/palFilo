@@ -23,6 +23,7 @@ import { BusquedaComponent } from './pages/busqueda/busqueda.component';
 import { PopupCardRestaurantesComponent } from './component/popup-card-restaurantes/popup-card-restaurantes.component';
 import { ComentarioComponent } from './component/comentario/comentario.component';
 import { CardPromocionesComponent } from './component/card-promociones/card-promociones.component';
+import { ChatBotComponent } from './component/chat-bot/chat-bot.component';
 
 
 
@@ -46,7 +47,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     BusquedaComponent,
     PopupCardRestaurantesComponent,
     ComentarioComponent,
-    CardPromocionesComponent
+    CardPromocionesComponent,
+    ChatBotComponent
 
     
     

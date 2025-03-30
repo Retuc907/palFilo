@@ -14,14 +14,14 @@ import { HeaderComponent } from './component/header/header.component';
 import { PopupCardRestaurantesComponent } from './component/popup-card-restaurantes/popup-card-restaurantes.component';
 import { ComentarioComponent } from './component/comentario/comentario.component';
 import { CardPromocionesComponent } from './component/card-promociones/card-promociones.component';
-
+import { ChatBotComponent } from './component/chat-bot/chat-bot.component';
 
 
 
 
 const routes: Routes = [
   {path: '',component:LoginComponent},
-  {path: 'app-inicio',component:InicioComponent, ...canActivate(()=> redirectUnauthorizedTo(['/app-register']))},
+  {path: 'app-inicio',component:InicioComponent, },
   {path: 'app-promociones', component:PromocionesComponent},
   {path: 'app-resenas',component:ResenasComponent},
   {path: 'app-preferidos',component:PreferidosComponent},
@@ -32,7 +32,8 @@ const routes: Routes = [
   {path: 'app-busqueda', component:BusquedaComponent},
   {path: 'app-popup-card-restaurantes',component:PopupCardRestaurantesComponent},
   {path: 'app-comentario',component:ComentarioComponent},
-  {path: 'app-card-promociones', component:CardPromocionesComponent}
+  {path: 'app-card-promociones', component:CardPromocionesComponent},
+  {path: 'app-chat-bot', component:ChatBotComponent}
 
 ];
 

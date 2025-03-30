@@ -1,1 +1,65 @@
 /* You can add global styles to this file, and also import other style files */
+/* Estilos generales */
+body, html {
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  /* Modo claro (por defecto) */
+  html {
+    background-color: white;
+    color: black;
+  }
+  
+  /* Modo oscuro */
+  html.dark-mode {
+    background-color: black !important;
+    color: white !important;
+  }
+  html.dark-mode body{
+    background-color: black !important;
+    color: white !important;
+  }
+  
+  /* Estilos de elementos específicos en modo oscuro */
+  html.dark-mode a {
+    color: #bbb !important;
+  }
+  
+  html.dark-mode .card {
+    background-color: #222 !important;
+    color: white !important;
+  }
+
+  html.dark-mode .promociones-card {
+    background-color: #222 !important;
+    color: white !important;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+  }
+  html.dark-mode .promociones-card {
+    background-color: #222 !important;
+    color: white !important;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+  }
+
+  html.dark-mode .restaurant-card {
+    background-color: #222 !important;
+    color: white !important;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+  }
+  
+  html.dark-mode .descripcion {
+    background-color: #333 !important;
+  }
+  html.dark-mode .sidebar {
+    background-color: #333 !important;
+  }
+  html.dark-mode .main-content--header {
+    background-color: #575757 !important;
+  }
+  
+  html.dark-mode button {
+    background-color: #444 !important;
+    color: white !important;
+    border: 1px solid white !important;
+  }
+  

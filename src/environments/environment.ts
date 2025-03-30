@@ -1,5 +1,7 @@
 export const environment = {
     production: false,
+    BASE_URL: 'https://pal-filo-backend.onrender.com/api', 
+
     firebaseConfig: {
       apiKey: "AIzaSyBUgeGYXCCH7xprTYrVK4YCkcETMURCdBQ",
       authDomain: "pal-filo-firebase-auth.firebaseapp.com",

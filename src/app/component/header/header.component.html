@@ -8,7 +8,7 @@
     <select id="language" [(ngModel)]="selectedLanguage" (change)="changeLanguage(selectedLanguage)">
           <option *ngFor="let lang of languages" [value]="lang.code">{{ lang.label }}</option>
         </select>
-    <button class="btn"> O </button>
+    <button (click)="toggleDarkMode()"  class="btn">   {{ isDarkMode ? '☀️ Modo Claro' : '🌙 Modo Oscuro' }} </button>
     <button class="btn"> aa | AA </button>
 
 
