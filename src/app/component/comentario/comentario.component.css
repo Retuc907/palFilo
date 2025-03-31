@@ -31,7 +31,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 100%; /* Evita que el nombre sea más ancho de lo permitido */
+    max-width: 100%;
 }
 
 .profile img {
@@ -81,7 +81,7 @@
 .column-style .card {
     font-size: 10px; /* Reduce el tamaño del texto en general */
     flex-direction: row; /* Asegura que siga en fila */
-    align-items: flex-start; /* Alinea los elementos arriba */
+    align-items: flex-start;
     padding: 8px;
 }
 
@@ -97,11 +97,79 @@
 
 .column-style .profile p {
     font-size: 10px;
-    margin: 2px 0; /* Reduce el margen del nombre */
+    margin: 2px 0;
 }
 
 .column-style .comentario {
-    flex-grow: 1; /* Permite que el comentario ocupe más espacio */
-    padding-left: 10px; /* Da espacio entre el perfil y el texto */
-    text-align: justify; /* Acomoda el texto */
+    flex-grow: 1;
+    padding-left: 10px;
+    text-align: justify;
+}
+
+/* ✅ Media Queries para Responsividad */
+
+/* 📱 Móviles (máx 576px) */
+@media (max-width: 576px) {
+    .row-style, .column-style {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0.5rem;
+    }
+
+    .row-style .card, .column-style .card {
+        width: 100%;
+        font-size: 1em;
+        padding: 0.75rem;
+    }
+
+    .profile {
+        width: 100%;
+        min-width: auto;
+    }
+
+    .profile img {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .profile p {
+        font-size: 0.875em;
+    }
+
+    .comentario {
+        text-align: left;
+        padding-left: 0;
+    }
+}
+
+/* 📲 Tablets (máx 768px) */
+@media (max-width: 768px) {
+    .row-style {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .row-style .card {
+        width: 90%;
+        font-size: 1.125em;
+    }
+
+    .profile {
+        width: 7.5rem;
+        min-width: 7.5rem;
+    }
+
+    .profile img {
+        width: 3rem;
+        height: 3rem;
+    }
+}
+
+/* 💻 Escritorio (mín 1200px) */
+@media (min-width: 1200px) {
+    .row-style .card {
+        width: 45%;
+        font-size: 1.25em;
+    }
 }

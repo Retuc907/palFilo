@@ -1,6 +1,7 @@
 {
     "APP_NAME": "Pal Filo",
     "MENU": {
+      "MAP": "Map",
       "HOME": "Home",
       "DISCOUNTS": "Discounts",
       "REVIEWS": "Reviews",

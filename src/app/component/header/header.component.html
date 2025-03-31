@@ -9,7 +9,17 @@
           <option *ngFor="let lang of languages" [value]="lang.code">{{ lang.label }}</option>
         </select>
     <button (click)="toggleDarkMode()"  class="btn">   {{ isDarkMode ? '☀️ Modo Claro' : '🌙 Modo Oscuro' }} </button>
-    <button class="btn"> aa | AA </button>
+    
+    <button (click)="increaseFontSize()" class="btn btn-outline-light">
+      🔼 Aumentar
+    </button>
+    <button (click)="decreaseFontSize()" class="btn btn-outline-light">
+      🔽 Disminuir
+    </button>
+    <button (click)="resetFontSize()" class="btn btn-outline-light">
+      🔄 Restablecer
+    </button>
+    
 
 
 </div>

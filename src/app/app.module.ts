@@ -24,6 +24,8 @@ import { PopupCardRestaurantesComponent } from './component/popup-card-restauran
 import { ComentarioComponent } from './component/comentario/comentario.component';
 import { CardPromocionesComponent } from './component/card-promociones/card-promociones.component';
 import { ChatBotComponent } from './component/chat-bot/chat-bot.component';
+import { MapaComponent } from './component/mapa/mapa.component';
+import { MapaRestaurantesComponent } from './pages/mapa-restaurantes/mapa-restaurantes.component';
 
 
 
@@ -48,7 +50,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     PopupCardRestaurantesComponent,
     ComentarioComponent,
     CardPromocionesComponent,
-    ChatBotComponent
+    ChatBotComponent,
+    MapaComponent,
+    MapaRestaurantesComponent
 
     
     

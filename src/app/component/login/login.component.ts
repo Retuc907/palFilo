@@ -1,3 +1,6 @@
+// LOGIN CON FIREBASE SERVICE --------------------------------------------------------------------------------------
+
+/*
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -30,20 +33,30 @@ formLogin: FormGroup;
   this._userService.login(this.formLogin.value)
   .then(response => {
     console.log(response);
-    this._router.navigate((['/app-inicio']))
+    this._router.navigate((['/app-mapa']))
   })
   .catch(error => console.log(error));
    }}
 
-
+*/
 
   
-/*
 
+
+
+
+
+
+
+
+
+
+
+   // LOGIN CON LA API ---------------------------------------------------------------------------------------------
 
 
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 
@@ -61,8 +74,8 @@ formLogin: FormGroup;
       private _router: Router
     ){
       this.formLogin= new FormGroup ({
-        email : new FormControl(),
-        password: new FormControl()
+        email: new FormControl('', [Validators.required, Validators.email]),
+        password: new FormControl('', [Validators.required, Validators.minLength(6)])
       })
     }
     
@@ -72,7 +85,13 @@ formLogin: FormGroup;
 
   onSubmit() {
     const credentials = this.formLogin.value;
-    
+  
+      if (this.formLogin.invalid) {
+        console.log('🛑 Formulario inválido');
+        return;
+      }
+
+      
     this._loginService.login(credentials).subscribe({
       next: (response) => {
         console.log('✅ Respuesta del backend:', response); // Imprime la respuesta exitosa
@@ -89,8 +108,9 @@ formLogin: FormGroup;
         console.log('🛑 Respuesta completa del backend:', error.error); 
       }
     });
+    
   }
 }
 
 
- */
+

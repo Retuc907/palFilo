@@ -35,12 +35,21 @@ body, html {
     color: white !important;
     box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
   }
-  html.dark-mode .promociones-card {
+  html.dark-mode .popup-overlay .container  {
     background-color: #222 !important;
     color: white !important;
     box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
   }
-
+  html.dark-mode .popup-overlay  .info-restaurante{
+    background-color: #222 !important;
+    color: white !important;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+  }
+  html.dark-mode .popup-overlay  .element1{
+    background-color: #222 !important;
+    color: white !important;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+  }
   html.dark-mode .restaurant-card {
     background-color: #222 !important;
     color: white !important;

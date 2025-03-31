@@ -15,6 +15,8 @@ import { PopupCardRestaurantesComponent } from './component/popup-card-restauran
 import { ComentarioComponent } from './component/comentario/comentario.component';
 import { CardPromocionesComponent } from './component/card-promociones/card-promociones.component';
 import { ChatBotComponent } from './component/chat-bot/chat-bot.component';
+import { MapaComponent } from './component/mapa/mapa.component';
+import { MapaRestaurantesComponent } from './pages/mapa-restaurantes/mapa-restaurantes.component';
 
 
 
@@ -33,7 +35,9 @@ const routes: Routes = [
   {path: 'app-popup-card-restaurantes',component:PopupCardRestaurantesComponent},
   {path: 'app-comentario',component:ComentarioComponent},
   {path: 'app-card-promociones', component:CardPromocionesComponent},
-  {path: 'app-chat-bot', component:ChatBotComponent}
+  {path: 'app-chat-bot', component:ChatBotComponent},
+  {path: 'app-mapa', component:MapaComponent},
+  {path: 'app-mapa-restaurantes',component:MapaRestaurantesComponent}
 
 ];
 

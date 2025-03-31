@@ -1,50 +1,24 @@
 import { Injectable } from '@angular/core';
-import { ListaRestaurantesService } from './lista.restaurantes.service';
-import { IListaRestaurantes } from '../models/lista-restaurantes.model';
-import { Observable, of, map } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { IChatbot } from '../models/chatbot.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChatbotService {
-  private preguntas = [
-    {
-      restaurant_id: 1,
-      pregunta: "¿Dónde está ubicado el restaurante?",
-      esperado: "ubicacion",
-    },
-    {
-      restaurant_id: 2,
-      pregunta: "¿Cuál es el horario del restaurante?",
-      esperado: "horario.lunesViernes",
-    }
-  ];
 
-  constructor(private listaRestaurantesService: ListaRestaurantesService) {}
+  private apiUrl = `${environment.apiChatbot}`; // Ruta del endpoint
 
-  buscarRespuesta(preguntaUsuario: string): Observable<string> {
-    const pregunta = this.preguntas.find(p => p.pregunta.toLowerCase() === preguntaUsuario.toLowerCase());
+  constructor(private http: HttpClient) {}
 
-    if (!pregunta) {
-      return of("Lo siento, no tengo información sobre eso.");
-    }
+  buscarRespuesta(pregunta: string, restaurantId: number): Observable<string> {
+    const requestBody: IChatbot = {
+      pregunta: pregunta,
+      restaurant_id: restaurantId
+    };
 
-    return this.listaRestaurantesService.getRestaurantes().pipe(
-      map((restaurantes: IListaRestaurantes[]) => {
-        const restaurante = restaurantes.find(rest => rest.id === pregunta.restaurant_id);
-        if (!restaurante) {
-          return "Información no disponible.";
-        }
-
-        // Obtener el valor del campo esperado de forma dinámica
-        const esperadoValue = this.obtenerValorDinamico(restaurante, pregunta.esperado);
-
-        return esperadoValue ? esperadoValue : "Información no disponible.";
-      })
-    );
-  }
-
-  private obtenerValorDinamico(obj: any, path: string): any {
-    return path.split('.').reduce((acc, key) => acc && acc[key], obj);
+    return this.http.post<string>(this.apiUrl, requestBody); // Hacer la petición POST
   }
 }

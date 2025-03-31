@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { UserService } from 'src/app/services/user.service';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
+import { FontSizeService } from 'src/app/services/font-size.service';
 
 @Component({
   selector: 'app-header',
@@ -26,7 +27,8 @@ export class HeaderComponent {
       private translate: TranslateService,
       private _userService: UserService,
       private _router: Router,
-      private darkModeService: DarkModeService
+      private darkModeService: DarkModeService,
+      private fontSizeService: FontSizeService
     ) {
       this.translate.setDefaultLang(this.selectedLanguage);
       this.translate.use(this.selectedLanguage);
@@ -50,6 +52,18 @@ export class HeaderComponent {
     toggleDarkMode(): void {
       this.darkModeService.toggleDarkMode();
       this.isDarkMode = this.darkModeService.isDarkMode();
+    }
+
+    increaseFontSize(): void {
+      this.fontSizeService.increaseFontSize();
+    }
+  
+    decreaseFontSize(): void {
+      this.fontSizeService.decreaseFontSize();
+    }
+  
+    resetFontSize(): void {
+      this.fontSizeService.resetFontSize();
     }
     
 }

@@ -34,6 +34,10 @@
                   <div class="mb-4">
                       <label for="email" class="form-label">Correo Electrónico</label>
                       <input type="email" id="email" class="form-control" formControlName="email" required placeholder="Ingresa tu correo">
+                      <div *ngIf="formLogin.controls['email'].invalid && formLogin.controls['email'].touched" class="text-danger">
+                        <p *ngIf="formLogin.controls['email'].errors?.['required']">El email es obligatorio</p>
+                        <p *ngIf="formLogin.controls['email'].errors?.['email']">Formato de email inválido</p>
+                      </div>
                   </div>
   
                   <div class="mb-4">
