@@ -13,12 +13,11 @@
     <div  class="card" *ngFor="let restaurante of favoritos let i = index">
       <app-card-restaurantes 
       [restaurante]="restaurante"
-      [id]="restaurante.id"
-      [imagenes]="restaurante.imagenes"
-      [nombre]="restaurante.nombre"
-      [categoria]="restaurante.categoria"
-      [calificacion]="restaurante.calificacion"
-      [categoria]="restaurante.categoria"></app-card-restaurantes>
+      [id]="restaurante.restaurant_id"
+     
+      [nombre]="restaurante.name"
+      [categoria]="restaurante.category"
+     ></app-card-restaurantes>
     </div>
 
      </div>

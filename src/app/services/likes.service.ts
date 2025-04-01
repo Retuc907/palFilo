@@ -15,11 +15,11 @@ export class LikesService {
   constructor(/* private http: HttpClient */) {}
 
   darLike(restaurante: IListaRestaurantes): Observable<number> {
-    if (restaurante.id === undefined) {
+    if (restaurante.restaurant_id === undefined) {
       console.error('Error: El restaurante no tiene un ID válido', restaurante);
       return of(0);
     }
-    const id = restaurante.id;
+    const id = restaurante.restaurant_id;
 
     // Incrementa los likes
     if (!this.likes[id]) {
@@ -28,7 +28,7 @@ export class LikesService {
     this.likes[id]++;
 
     // Si aún no está en favoritos, lo agregamos
-    if (!this.favoritos.find(r => r.id === id)) {
+    if (!this.favoritos.find(r => r.restaurant_id === id)) {
       // Crear una copia con todas las propiedades, incluido el ID
       const restauranteCopia = { ...restaurante };
       this.favoritos.push(restauranteCopia);

@@ -1,49 +1,35 @@
 import { Injectable } from '@angular/core';
 import { IListaRestaurantes } from '../models/lista-restaurantes.model';
 import { Observable, of } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ListaRestaurantesService {
+export class 
+ListaRestaurantesService {
 
-  private restaurantes: IListaRestaurantes[] = [
-    {
-      id: 1,
-      nombre: "Jac's Burguer",
-      categoria: "Comida rápida",
-      calificacion: 4.8,
-      imagenes: [
-        "../../assets/images/jacs-burguer.jpg",
-        "../../assets/images/jacs-burguer.jpg",
-        "../../assets/images/jacs-burguer.jpg"
-      ],
-      mediosPago: "Efectivo, Nequi, Daviplata, transferencias",
-      rangoPrecios: { desde: 10000, hasta: 60000 },
-      ubicacion: "AV.3C #60d 34",
-      horario: { lunesViernes: "11:00-21:00", domingoFestivos: "11:00-21:00" },
-      menu: "Enlace al menú"
-    },
-    {
-      id: 2,
-      nombre: "Sabor del Pacífico",
-      categoria: "Mariscos",
-      calificacion: 4.7,
-      imagenes: [
-        "../../assets/images/jacs-burguer.jpg",
-        "../../assets/images/jacs-burguer.jpg",
-        "../../assets/images/jacs-burguer.jpg"
-      ],
-      mediosPago: "Tarjetas, efectivo",
-      rangoPrecios: { desde: 15000, hasta: 80000 },
-      ubicacion: "Calle 45 #12-34",
-      horario: { lunesViernes: "10:00-22:00", domingoFestivos: "10:00-22:30" },
-      menu: "Enlace al menú"
+  private apiUrl = environment.apiRestaurantes
+
+  constructor(private http: HttpClient) {}
+
+  getRestaurantesCercanos(): Observable<IListaRestaurantes[]> {
+    const userId = 38;
+    //const userId = localStorage.getItem('userIdRegister') || '38';
+    if (!userId) {
+      console.error('No se encontró userId en localStorage');
+      return of([]); // Retornar un array vacío como Observable
     }
-  ];
+    
+    console.log('userId obtenido de localStorage:', userId);
 
-  constructor() { }
-  getRestaurantes(): Observable<IListaRestaurantes[]> {
-    return of(this.restaurantes);
+    // Intenta con un formato diferente de URL o con parámetros en lugar de path parameters
+    const url = `${this.apiUrl}/restaurants/near/user_id/${userId}`;
+    return this.http.get<IListaRestaurantes[]>(url, {
+      params: {
+        user_id: userId
+      }
+    });
   }
 }

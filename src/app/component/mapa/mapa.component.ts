@@ -1,5 +1,7 @@
 import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import * as L from 'leaflet';
+import { ListaRestaurantesService } from 'src/app/services/lista.restaurantes.service';
+import { IListaRestaurantes } from 'src/app/models/lista-restaurantes.model';
 
 @Component({
   selector: 'app-mapa',
@@ -8,113 +10,150 @@ import * as L from 'leaflet';
 })
 export class MapaComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  map: any;
-  private userMaker?: L.Marker<any>;
+  map: L.Map | undefined;
   defaultCoordinates = { latitude: 4.5748, longitude: -74.559 };
-  private geolocateControl: any; // Referencia al control de geolocalización
 
-  sensorsData = [
-    { id: 1, name: 'Finca la libertad', latitude: 4.5748, longitude: -74.559 },
-  ];
+  // Almacenamos el control de geolocalización como L.Control
+  private geolocateControl?: L.Control;
+
+  constructor(private _listaRestaurantes: ListaRestaurantesService) {}
 
   ngOnInit(): void { }
 
   ngAfterViewInit(): void {
     try {
+      const mapDiv = document.getElementById('map');
+      console.log("¿Existe el div del mapa?", mapDiv);
+  
+      if (!mapDiv) {
+        console.error("❌ ERROR: No se encontró el div con id 'map'. Verifica el HTML.");
+        return;
+      }
+  
       this.map = L.map('map').setView([this.defaultCoordinates.latitude, this.defaultCoordinates.longitude], 9);
-
+      console.log("Mapa inicializado:", this.map instanceof L.Map ? "✅ Correcto" : "❌ Incorrecto", this.map);
+  
       L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        attribution: '&copy; OpenStreetMap contributors'
       }).addTo(this.map);
-
-      this.addSensorsMarkers();
-      this.createGeolocateControl(); // Crear el control después de inicializar el mapa
+  
+      // Agregamos los marcadores de restaurantes
+      this.addRestaurantMarkers();
+  
+      // Creamos y añadimos el control de geolocalización
+      this.createGeolocateControl();
     } catch (error) {
       console.error("Error al inicializar el mapa:", error);
     }
   }
+  
 
   ngOnDestroy(): void {
     if (this.map) {
-      // Eliminar control solo si existe
       if (this.geolocateControl) {
         try {
-          this.map.removeControl(this.geolocateControl); // Eliminar el control
+          this.map.removeControl(this.geolocateControl);
         } catch (error) {
           console.error('Error al eliminar el control de geolocalización:', error);
         }
       }
-  
-      // Eliminar el mapa
       this.map.remove();
     }
   }
-  
-  
 
-  addSensorsMarkers(): void {
-    const myIcon = L.icon({
-      iconUrl: '../../assets/imagenes/ubicacion.png',
-      iconSize: [25, 41]
-    });
-    this.sensorsData.forEach(sensor => {
-      L.marker([sensor.latitude, sensor.longitude], { icon: myIcon })
-        .addTo(this.map)
-        .bindPopup(`<b>${sensor.name}</b><br>Latitud: ${sensor.latitude}<br>Longitud: ${sensor.longitude}`);
+  // Método para obtener restaurantes y agregar marcadores
+  addRestaurantMarkers(): void {
+    this._listaRestaurantes.getRestaurantesCercanos().subscribe((restaurantes: IListaRestaurantes[]) => {
+      console.log("Lista de restaurantes obtenida:", restaurantes);
+  
+      if (!this.map) {
+        console.error("El mapa no se ha inicializado correctamente.");
+        return;
+      }
+  
+      const markers: L.LatLngExpression[] = [];
+  
+      restaurantes.forEach((restaurante, index) => {
+        const lat = restaurante.location?.latitude;
+        const lng = restaurante.location?.longitude;
+  
+        if (lat && lng) {
+          console.log(`✅ Agregando marcador #${index + 1}: ${restaurante.name} en (${lat}, ${lng})`);
+  
+          const icon = L.icon({
+            iconUrl: '../../../assets/images/ubicacion.png',
+            iconSize: [45, 41],
+            iconAnchor: [12, 41]
+          });
+  
+          const marker = L.marker([lat, lng], { icon: icon })
+            .addTo(this.map!)
+            .bindPopup(`<b>${restaurante.name}</b><br>${restaurante.address}`);
+  
+          markers.push([lat, lng]);
+        } else {
+          console.warn(`⚠️ El restaurante ${restaurante.name} no tiene coordenadas.`);
+        }
+      });
+  
+      // Ajustar la vista solo si hay marcadores
+      if (markers.length > 0) {
+        const bounds = L.latLngBounds(markers);
+        this.map!.fitBounds(bounds);
+        console.log("📍 Ajustando vista a los marcadores");
+      } else {
+        console.warn("⚠️ No se agregaron marcadores, revisa las coordenadas.");
+      }
+    }, error => {
+      console.error('❌ Error al obtener los restaurantes:', error);
     });
   }
+  
 
-  geolocalizar(): void {
-    const myIcon = L.icon({
-      iconUrl: '../../assets/imagenes/ubicacion.png',
-      iconSize: [25, 41]
-    });
 
-    const coords: [number, number] = [this.defaultCoordinates.latitude, this.defaultCoordinates.longitude];
-    const defaultSensor = this.sensorsData.find(sensor => sensor.latitude === coords[0] && sensor.longitude === coords[1]);
-
-    let popupContent = 'Ubicación por defecto';
-    if (defaultSensor) {
-      popupContent = `<b>${defaultSensor.name}</b><br>Latitud: ${defaultSensor.latitude}<br>Longitud: ${defaultSensor.longitude}`;
-    }
-
-    if (this.userMaker) {
-      this.userMaker.setLatLng(coords).setIcon(myIcon).bindPopup(popupContent).openPopup();
-    } else {
-      this.userMaker = L.marker(coords, { icon: myIcon, draggable: true }).addTo(this.map)
-        .bindPopup(popupContent)
-        .openPopup();
-    }
-
-    this.map.setView(coords, 13);
-  }
-
+  // Creación correcta del control de geolocalización
   createGeolocateControl() {
     try {
-      this.geolocateControl = L.Control.extend({
+      // Creamos una clase de control personalizada y la instanciamos inmediatamente.
+      const GeolocateControl = L.Control.extend({
         options: { position: 'topleft' },
         onAdd: (map: L.Map) => {
           const container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
           container.innerHTML = `<button class="boton-leaflet">Localizar</button>`;
           L.DomEvent.disableClickPropagation(container);
-  
           if (container.firstChild) {
             L.DomEvent.on(container.firstChild as HTMLElement, 'click', () => {
               this.geolocalizar();
             });
           } else {
-            console.error("No se pudo encontrar el botón dentro del contenedor del control.");
+            console.error("No se pudo encontrar el botón en el contenedor del control.");
           }
-  
           return container;
         }
       });
-      this.map.addControl(new this.geolocateControl()); // Usar la referencia guardada
-      console.log('Geolocate control añadido al mapa'); // Verificar que se añadió
+
+      // Instanciamos el control
+      this.geolocateControl = new GeolocateControl();
+      this.map?.addControl(this.geolocateControl);
+      console.log('Geolocate control añadido al mapa');
     } catch (error) {
       console.error("Error al crear el control:", error);
     }
   }
-  
+
+  geolocalizar(): void {
+    const myIcon = L.icon({
+      iconUrl: '../../../assets/images/ubicacion.png',
+      iconSize: [45, 41],
+      iconAnchor: [7, 25]
+    });
+    const coords: [number, number] = [40.71277179, -74.00597648];
+    const popupContent = 'Ubicación por defecto';
+    L.marker(coords, { icon: myIcon, draggable: true })
+      .addTo(this.map!)
+      .bindPopup(popupContent)
+      .openPopup();
+    this.map!.setView(coords, 13);
+  }
 }

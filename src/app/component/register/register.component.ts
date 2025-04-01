@@ -34,8 +34,8 @@ export class RegisterComponent implements OnInit {
     }
 
         const userData = {
-          ...this.formReg.value,
-          firebaseUUID: crypto.randomUUID(),
+         ...this.formReg.value,
+           firebaseUUID: crypto.randomUUID(),
           latitude: 40.7128,
           longitude: -74.0060
 
@@ -47,6 +47,7 @@ export class RegisterComponent implements OnInit {
           next: (response) => {
             console.log('✅ Usuario registrado:', response);
             this._router.navigate(['/app-login']);
+
           },
           error: (error) => {
             console.error('🛑 Error en registro:', error);

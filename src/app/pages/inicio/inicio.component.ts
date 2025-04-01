@@ -68,7 +68,7 @@ export class InicioComponent {
 
 
   ngOnInit(): void {
-    this.restauranteService.getRestaurantes().subscribe(data => {
+    this.restauranteService.getRestaurantesCercanos().subscribe(data => {
       this.restaurantes = data;
     });
   }

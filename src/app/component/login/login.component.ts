@@ -86,31 +86,43 @@ formLogin: FormGroup;
   onSubmit() {
     const credentials = this.formLogin.value;
   
-      if (this.formLogin.invalid) {
-        console.log('🛑 Formulario inválido');
-        return;
-      }
-
-      
-    this._loginService.login(credentials).subscribe({
+    console.log('Estado del formulario:', this.formLogin);
+    console.log('Datos del formulario:', credentials);
+  
+    if (this.formLogin.invalid) {
+      console.log('🛑 Formulario inválido');
+      Object.keys(this.formLogin.controls).forEach(control => {
+        const controlErrors = this.formLogin.get(control)?.errors;
+        if (controlErrors) {
+          console.log(`${control} tiene los siguientes errores:`, controlErrors);
+        }
+      });
+      return;
+    }
+  
+    const firebaseUUID = ''; // Aquí si tienes el firebaseUUID lo agregas
+    const userdata = {
+      email: credentials.email,
+      password: credentials.password,
+      firebaseUUID: firebaseUUID || ''
+    };
+  
+    console.log('Datos enviados al servidor:', userdata);
+  
+    this._loginService.login(userdata).subscribe({
       next: (response) => {
-        console.log('✅ Respuesta del backend:', response); // Imprime la respuesta exitosa
-
+        console.log('✅ Respuesta del backend:', response);
         console.log('Login exitoso:', response);
         this._router.navigate(['/app-inicio']);
       },
       error: (error) => {
         console.error('Error en login:', error);
-
         console.log('🛑 Error status:', error.status);
         console.log('🛑 Error statusText:', error.statusText);
         console.log('🛑 Error message:', error.message);
         console.log('🛑 Respuesta completa del backend:', error.error); 
       }
     });
-    
   }
-}
-
-
+}  
 

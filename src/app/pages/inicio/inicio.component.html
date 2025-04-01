@@ -13,11 +13,11 @@
     <div class="restaurant-list">
       <div class="card" *ngFor="let restaurante of restaurantes">
         <app-card-restaurantes 
-          [id]="restaurante.id" 
-          [nombre]="restaurante.nombre"
-          [categoria]="restaurante.categoria"
-          [calificacion]="restaurante.calificacion"
-          [imagenes]="restaurante.imagenes"
+        [restaurante]="restaurante"
+        [id]="restaurante.restaurant_id"
+       
+        [nombre]="restaurante.name"
+        [categoria]="restaurante.category"
           (seleccionRestaurante)="abrirPopupRestaurante(restaurante)">
         </app-card-restaurantes>
       </div>

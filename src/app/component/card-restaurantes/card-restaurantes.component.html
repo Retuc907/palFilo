@@ -1,4 +1,4 @@
-<div class="restaurant-card" (click)="abrirPopup()">  
+<div  class="restaurant-card" (click)="abrirPopup()">  
     <div class="restaurant-image">
       <img *ngFor="let img of imagenes" [src]="img" alt="{{ nombre }}">
     </div>
@@ -6,9 +6,9 @@
       <button class="like" (click)="darLike($event)">❤️ {{ likes }}</button>
 
       <h3>{{ nombre }}</h3>
-      <p class="categoria">{{ 'CARD.CATEGORY' | translate }} {{categoria}} </p>
+      <p class="categoria">{{ 'CARD.CATEGORY' | translate }} {{restaurante.category}} </p>
       <div class="rating-container">
-        <span class="rating">★ {{ 'CARD.RATING' | translate }} {{calificacion}}</span>
+        <span class="rating">★ {{ 'CARD.RATING' | translate }} {{ restaurante.address}}</span>
        
     
       </div>
