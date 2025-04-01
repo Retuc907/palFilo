@@ -1,0 +1,26 @@
+<div class="chat-container">
+    <h2>Chatbot de Restaurantes</h2>
+  
+    <!-- Selector de restaurante -->
+    <label for="restaurante">Selecciona un restaurante:</label>
+    <select [(ngModel)]="restaurantId">
+      <option *ngFor="let restaurante of restaurantes" [value]="restaurante.restaurant_id">
+        {{ restaurante.name }} (ID: {{ restaurante.restaurant_id }})
+      </option>
+    </select>
+  
+    <!-- Campo de pregunta -->
+    <label for="pregunta">Haz tu pregunta:</label>
+    <textarea [(ngModel)]="pregunta" placeholder="Escribe tu pregunta..."></textarea>
+  
+    <button (click)="enviarPregunta()" [disabled]="!pregunta.trim() || !restaurantId">
+      Enviar Pregunta
+    </button>
+  
+    <!-- Respuesta del chatbot -->
+    <div *ngIf="respuesta">
+      <h3>Respuesta del Chatbot:</h3>
+      <p>{{ respuesta }}</p>
+    </div>
+  </div>
+  

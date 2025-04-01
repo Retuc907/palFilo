@@ -32,4 +32,7 @@ ListaRestaurantesService {
       }
     });
   }
+  obtenerLista(): Observable<IListaRestaurantes[]> {
+    return this.http.get<IListaRestaurantes[]>(this.apiUrl);
+  }
 }
