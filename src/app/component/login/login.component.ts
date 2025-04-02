@@ -66,7 +66,7 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
+  cargando: boolean = false;
 formLogin: FormGroup;
 
     constructor(
@@ -98,7 +98,8 @@ formLogin: FormGroup;
         }
       });
       return;
-    }
+    }        this.cargando = true;
+
   
     const firebaseUUID = ''; // Aquí si tienes el firebaseUUID lo agregas
     const userdata = {
@@ -116,6 +117,8 @@ formLogin: FormGroup;
         this._router.navigate(['/app-inicio']);
       },
       error: (error) => {
+        this.cargando = false;
+
         console.error('Error en login:', error);
         console.log('🛑 Error status:', error.status);
         console.log('🛑 Error statusText:', error.statusText);

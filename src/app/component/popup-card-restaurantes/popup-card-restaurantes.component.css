@@ -183,6 +183,13 @@ gap: 10px;
   font-size: 12px;
   font-weight: bold;
 }
+h2{
+  font-size: 18px;
+}
+
+.info-menu p{
+  font-size: 7.5px  !important;
+}
 
 .info-restaurante p {
   padding: 0 3px;
@@ -191,7 +198,9 @@ gap: 10px;
   font-size: 9px;
   
 }
-
+.element1 p{
+  font-size: 12px;
+}
 .info-restaurante .calificacion-numero {
 font-size: 30px;
 margin-bottom: 2px;

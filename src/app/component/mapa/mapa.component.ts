@@ -15,10 +15,12 @@ export class MapaComponent implements OnInit, AfterViewInit, OnDestroy {
 
   // Almacenamos el control de geolocalización como L.Control
   private geolocateControl?: L.Control;
+  cargando: boolean = false; // Spinner loader
 
   constructor(private _listaRestaurantes: ListaRestaurantesService) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {     this.cargando = true; // Activar spinner
+  }
 
   ngAfterViewInit(): void {
     try {
@@ -66,6 +68,8 @@ export class MapaComponent implements OnInit, AfterViewInit, OnDestroy {
   addRestaurantMarkers(): void {
     this._listaRestaurantes.getRestaurantesCercanos().subscribe((restaurantes: IListaRestaurantes[]) => {
       console.log("Lista de restaurantes obtenida:", restaurantes);
+      this.cargando = false; // Desactivar spinner
+
   
       if (!this.map) {
         console.error("El mapa no se ha inicializado correctamente.");

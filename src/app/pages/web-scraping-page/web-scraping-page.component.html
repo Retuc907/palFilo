@@ -1,4 +1,6 @@
 <div>
+  <app-spinner-loader *ngIf="cargando"></app-spinner-loader>
+
     <h2>Selecciona un restaurante</h2>
     
     <select (change)="onRestaurantSelect($event)">

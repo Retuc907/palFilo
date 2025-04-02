@@ -11,8 +11,9 @@ import { IListaRestaurantes } from 'src/app/models/lista-restaurantes.model';
 })
 export class WebScrapingPageComponent implements OnInit {
   restaurantes: IListaRestaurantes[] = [];
-  selectedRestaurantUrl: string | null = null;
+  selectedRestaurantUrl: string = ''; // Inicializar como cadena vacía
   scrapingData: ScrapingResponse | null = null;
+  cargando: boolean = false; // Indicador de carga
 
   constructor(
     private scrapingService: WebScrappingService,
@@ -20,14 +21,25 @@ export class WebScrapingPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Obtener lista de restaurantes
-    this.listaRestaurantesService.getRestaurantesCercanos().subscribe((data) => {
-      this.restaurantes = data;
-      console.log('Lista de restaurantes obtenida:', data);
+    this.obtenerListaRestaurantes();
+  }
+
+  obtenerListaRestaurantes(): void {
+    this.cargando = true; // Activar el spinner
+    this.listaRestaurantesService.getRestaurantesCercanos().subscribe({
+      next: (data) => {
+        this.restaurantes = data;
+        console.log('✅ Lista de restaurantes obtenida:', data);
+        this.cargando = false; // Desactivar el spinner
+      },
+      error: (err) => {
+        console.error('❌ Error obteniendo restaurantes:', err);
+        this.cargando = false; // Desactivar el spinner en caso de error
+      }
     });
   }
 
-  onRestaurantSelect(event: Event) {
+  onRestaurantSelect(event: Event): void {
     const selectedMenuUrl = (event.target as HTMLSelectElement).value;
     
     if (selectedMenuUrl) {
@@ -36,10 +48,20 @@ export class WebScrapingPageComponent implements OnInit {
     }
   }
 
-  obtenerDatosScraping(menuUrl: string) {
-    this.scrapingService.getRestaurantData(menuUrl).subscribe((data) => {
-      this.scrapingData = data;
-      console.log('Datos del scraping:', data);
+  obtenerDatosScraping(menuUrl: string): void {
+    this.cargando = true; // Activar el spinner antes de la petición
+
+    this.scrapingService.getRestaurantData(menuUrl).subscribe({
+      next: (data) => {
+        this.scrapingData = data;
+        console.log('✅ Datos del scraping:', data);
+        this.cargando = false; // Desactivar el spinner después de recibir la respuesta
+      },
+      error: (err) => {
+        console.error('❌ Error obteniendo datos del scraping:', err);
+        this.scrapingData = null;
+        this.cargando = false; // Desactivar el spinner en caso de error
+      }
     });
   }
 }

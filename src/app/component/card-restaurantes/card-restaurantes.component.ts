@@ -29,6 +29,8 @@ export class CardRestaurantesComponent implements OnInit {
   likes: number = 0; 
 
   restaurantes: IListaRestaurantes[] = [];
+  cargando: boolean = false; // Spinner loader
+
 
   constructor(
     private restaurantesService: ListaRestaurantesService,
@@ -36,6 +38,16 @@ export class CardRestaurantesComponent implements OnInit {
   ) {}
   
   ngOnInit(): void {
+    this.cargando = true; // Activar spinner
+
+    if (!this.imagenes || this.imagenes.length === 0) {
+      this.imagenes = [
+        '../../../assets/images/palFilo-logo.png',
+        '../../../assets/images/palFilo-logo.png',
+        '../../../assets/images/palFilo-logo.png',
+        '../../../assets/images/palFilo-logo.png',
+              ];
+    }
     // Inicialización para compatibilidad con la versión anterior
     if (!this.restaurante && this.id) {
       // Crear un objeto compatible con el nuevo modelo IListaRestaurantes
@@ -55,6 +67,8 @@ export class CardRestaurantesComponent implements OnInit {
     // Cargar restaurantes cercanos usando el nuevo servicio
     this.restaurantesService.getRestaurantesCercanos().subscribe(data => {
       this.restaurantes = data;
+      this.cargando = false; // Desactivar spinner
+
     });
       
     // Mantener funcionalidad de likes (asumiendo que funciona con el id)
@@ -91,6 +105,7 @@ export class CardRestaurantesComponent implements OnInit {
   }
 
   abrirPopup() {
+    
     if (this.restaurante) {
       this.seleccionRestaurante.emit(this.restaurante);
     } else {

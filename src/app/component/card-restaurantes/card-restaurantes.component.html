@@ -1,6 +1,8 @@
 <div  class="restaurant-card" (click)="abrirPopup()">  
+  <app-spinner-loader *ngIf="cargando"></app-spinner-loader>
+
     <div class="restaurant-image">
-      <img *ngFor="let img of imagenes" [src]="img" alt="{{ nombre }}">
+      <img [src]="imagenes[0]" alt="{{ nombre }}">
     </div>
     <div class="restaurant-info">
       <button class="like" (click)="darLike($event)">❤️ {{ likes }}</button>

@@ -14,7 +14,9 @@ export class PopupCardRestaurantesComponent implements OnInit {
   rangoPrecios = { desde: 10, hasta: 30 };
   mediosDePago = 'Credit Card, Cash';
   horaro = { lv: '10:00-6:00', df: 'No service' };
-  image = '../../../assets/images/jacs-burguer.jpg'; // Ruta fija a la imagen que quieres mostrar
+  image = '../../../assets/images/palFilo-logo.png'; // Ruta fija a la imagen que quieres mostrar
+  img = '../../../assets/images/palFilo-logo.png'; // Ruta fija a la imagen que quieres mostrar
+  im = '../../../assets/images/palFilo-logo.png'; // Ruta fija a la imagen que quieres mostrar
 
 
   likes: number = 0;

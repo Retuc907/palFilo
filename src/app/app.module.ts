@@ -27,6 +27,7 @@ import { ChatBotComponent } from './component/chat-bot/chat-bot.component';
 import { MapaComponent } from './component/mapa/mapa.component';
 import { MapaRestaurantesComponent } from './pages/mapa-restaurantes/mapa-restaurantes.component';
 import { WebScrapingPageComponent } from './pages/web-scraping-page/web-scraping-page.component';
+import { SpinnerLoaderComponent } from './component/spinner-loader/spinner-loader.component';
 
 
 
@@ -54,7 +55,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ChatBotComponent,
     MapaComponent,
     MapaRestaurantesComponent,
-    WebScrapingPageComponent
+    WebScrapingPageComponent,
+    SpinnerLoaderComponent
 
     
     
