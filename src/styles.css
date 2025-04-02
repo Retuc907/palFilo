@@ -55,7 +55,14 @@ body, html {
     color: white !important;
     box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
   }
-  
+    html.dark-mode .chatbot-container{
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+  }
+  html.dark-mode .chatbot-container .restaurant-selector{
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+  }
   html.dark-mode .descripcion {
     background-color: #333 !important;
   }

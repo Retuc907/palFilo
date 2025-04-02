@@ -1,7 +1,7 @@
 export const environment = {
   production: false,
   apiRestaurantes: 'https://pal-filo-backend.onrender.com/api',
-  apiChatbot: 'https://palfilo-chatbot.onrender.com/chat',
+  apiChatbot: 'https://palfilo-chatbot.onrender.com/chatbot/chat',
 
   firebaseConfig: {
     apiKey: "AIzaSyBUgeGYXCCH7xprTYrVK4YCkcETMURCdBQ",

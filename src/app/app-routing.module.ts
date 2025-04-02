@@ -18,6 +18,7 @@ import { ChatBotComponent } from './component/chat-bot/chat-bot.component';
 import { MapaComponent } from './component/mapa/mapa.component';
 import { MapaRestaurantesComponent } from './pages/mapa-restaurantes/mapa-restaurantes.component';
 import { CardRestaurantesComponent } from './component/card-restaurantes/card-restaurantes.component';
+import { WebScrapingPageComponent } from './pages/web-scraping-page/web-scraping-page.component';
 
 
 
@@ -39,7 +40,8 @@ const routes: Routes = [
   {path: 'app-chat-bot', component:ChatBotComponent},
   {path: 'app-mapa', component:MapaComponent},
   {path: 'app-mapa-restaurantes',component:MapaRestaurantesComponent},
-  {path: 'app-card-restaurantes',component:CardRestaurantesComponent}
+  {path: 'app-card-restaurantes',component:CardRestaurantesComponent},
+  {path: 'app-web-scraping-page',component:WebScrapingPageComponent}
 
 ];
 

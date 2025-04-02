@@ -1,0 +1,16 @@
+<div>
+    <h2>Selecciona un restaurante</h2>
+    
+    <select (change)="onRestaurantSelect($event)">
+      <option value="" disabled selected>Selecciona un restaurante</option>
+      <option *ngFor="let restaurant of restaurantes" [value]="restaurant.menu_url">
+        {{ restaurant.name }}
+      </option>
+    </select>
+  
+    <div *ngIf="scrapingData">
+      <h3>Datos del Scraping:</h3>
+      <pre>{{ scrapingData | json }}</pre>
+    </div>
+  </div>
+  

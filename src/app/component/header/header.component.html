@@ -8,15 +8,15 @@
     <select id="language" [(ngModel)]="selectedLanguage" (change)="changeLanguage(selectedLanguage)">
           <option *ngFor="let lang of languages" [value]="lang.code">{{ lang.label }}</option>
         </select>
-    <button (click)="toggleDarkMode()"  class="btn">   {{ isDarkMode ? '☀️ Modo Claro' : '🌙 Modo Oscuro' }} </button>
+    <button (click)="toggleDarkMode()"  class="button">   {{ isDarkMode ? '☀️ Modo Claro' : '🌙 Modo Oscuro' }} </button>
     
-    <button (click)="increaseFontSize()" class="btn btn-outline-light">
+    <button (click)="increaseFontSize()" class="button">
       🔼 Aumentar
     </button>
-    <button (click)="decreaseFontSize()" class="btn btn-outline-light">
+    <button (click)="decreaseFontSize()" class="button" >
       🔽 Disminuir
     </button>
-    <button (click)="resetFontSize()" class="btn btn-outline-light">
+    <button (click)="resetFontSize()" class="button">
       🔄 Restablecer
     </button>
     

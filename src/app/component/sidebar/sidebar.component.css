@@ -129,6 +129,65 @@
     font-size: 14px;
   }
 }
+/* ---------- MEDIA QUERIES ---------- */
+
+/* Pantallas extra grandes */
+@media screen and (min-width: 1441px) {
+  .sidebar {
+    width: 10%;
+    min-width: 180px;
+  }
+}
+
+/* Pantallas grandes */
+@media screen and (max-width: 1440px) and (min-width: 1201px) {
+  .sidebar {
+    width: 11%;
+    min-width: 170px;
+  }
+}
+
+/* Pantallas medianas */
+@media screen and (max-width: 1200px) and (min-width: 1025px) {
+  .sidebar {
+    width: 12%;
+    min-width: 160px;
+  }
+}
+
+/* Para tablets (pantallas de hasta 1024px) */
+@media screen and (max-width: 1024px) and (min-width: 901px) {
+  .sidebar {
+    width: 14%;
+    min-width: 140px;
+  }
+
+  .nav-item img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .nav-item {
+    font-size: 15px;
+  }
+}
+
+/* Para tablets pequeñas */
+@media screen and (max-width: 900px) and (min-width: 769px) {
+  .sidebar {
+    width: 16%;
+    min-width: 120px;
+  }
+
+  .nav-item img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .nav-item {
+    font-size: 14px;
+  }
+}
 
 /* Para celulares (pantallas de hasta 768px) */
 @media screen and (max-width: 768px) {
@@ -144,7 +203,8 @@
   }
 
   .sidebar.show {
-    width: 60%;
+    width: 50%;
+    min-width: 120px;
   }
 
   .hamburger {
@@ -166,5 +226,33 @@
     background-color: white;
     margin: 5px 0;
   }
+}
 
+/* Móviles pequeños */
+@media (min-width: 769px) {
+  .main-content--header {
+    width: calc(100% - 12%);
+    margin-left: 12%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .main-content--header {
+    width: calc(100% - 14%);
+    margin-left: 14%;
+  }
+}
+
+@media (max-width: 900px) {
+  .main-content--header {
+    width: calc(100% - 16%);
+    margin-left: 16%;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content--header {
+    width: 100%;
+    margin-left: 0;
+  }
 }

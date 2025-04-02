@@ -1,26 +1,51 @@
-<div class="chat-container">
+<div class="chatbot-container">
+  <div class="chatbot-header">
     <h2>Chatbot de Restaurantes</h2>
+  </div>
   
-    <!-- Selector de restaurante -->
+  <!-- Selector de restaurante -->
+  <div class="restaurant-selector">
     <label for="restaurante">Selecciona un restaurante:</label>
-    <select [(ngModel)]="restaurantId">
-      <option *ngFor="let restaurante of restaurantes" [value]="restaurante.restaurant_id">
-        {{ restaurante.name }} (ID: {{ restaurante.restaurant_id }})
-      </option>
-    </select>
-  
-    <!-- Campo de pregunta -->
-    <label for="pregunta">Haz tu pregunta:</label>
-    <textarea [(ngModel)]="pregunta" placeholder="Escribe tu pregunta..."></textarea>
-  
-    <button (click)="enviarPregunta()" [disabled]="!pregunta.trim() || !restaurantId">
-      Enviar Pregunta
-    </button>
-  
-    <!-- Respuesta del chatbot -->
-    <div *ngIf="respuesta">
-      <h3>Respuesta del Chatbot:</h3>
-      <p>{{ respuesta }}</p>
+    <div class="select-wrapper">
+      <select [(ngModel)]="restaurantId" id="restaurante">
+        <option value="" disabled selected>Selecciona un restaurante</option>
+        <option *ngFor="let restaurante of restaurantes" [value]="restaurante.restaurant_id">
+          {{ restaurante.name }}
+        </option>
+      </select>
     </div>
   </div>
   
+  <!-- Contenedor de mensajes -->
+  <div class="chatbot-messages">
+    <div class="welcome-message" *ngIf="!respuesta">
+      <p>¡Hola! Soy tu asistente de restaurantes. Selecciona un restaurante y hazme cualquier pregunta.</p>
+    </div>
+    
+    <div *ngIf="respuesta" class="message-container">
+      <div class="message user">
+        <p>{{ pregunta }}</p>
+      </div>
+      <div class="message bot">
+        <p>{{ respuesta }}</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Input de pregunta y botón enviar -->
+  <div class="chatbot-input">
+    <div class="input-wrapper">
+      <textarea [(ngModel)]="pregunta" placeholder="Escribe tu pregunta..."></textarea>
+    </div>
+    <button 
+      (click)="enviarPregunta()">
+      <span class="button-text">Enviar</span>
+      <span class="button-icon">→</span>
+    </button>
+  </div>
+  
+  <!-- Mensaje de advertencia -->
+  <div *ngIf="pregunta.trim() && !restaurantId" class="warning-message">
+    Por favor, selecciona un restaurante antes de enviar tu pregunta.
+  </div>
+</div>

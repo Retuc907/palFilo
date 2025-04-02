@@ -7,12 +7,15 @@
     width: 100%;
     padding: 15px;
     display: flex;
+            flex-direction: row;
+
     
   
     gap: 10px;
   }
   
   .main-content--header--app-name h1 {
+    margin-left: 20px;
     color: #ffffff;
     font-size: 34px;
     font-family: 'Lobster', cursive !important;
@@ -35,20 +38,69 @@ select {
     border: none;
   }
 button {
-    height: 40px;
+    height: 80%;
     background-color: #ffffff;
     color: #861F1B;
     border: none;
+    border-radius: 10px;
 }
   
 /* Media queries para responsividad */
-@media (max-width: 768px) {
+@media (max-width: 720px) {
   
-    .header {
+  .main-content--header {
+      
       flex-direction: column;
       gap: 10px;
+
+    }
+
+    .button { height: 100%;
+      border-radius: 10px;
+      color: #861F1B;
+      border: none;
+
+  }
+}
+
+  @media (max-width: 1024px) {
+  
+    .main-content--header {
+       align-items: center;
+        flex-direction: row;
+        gap: 10px;
+  
+      }
+  
+      .button {
+        height: 100%;
+        border-radius: 10px;
+        color: #861F1B;
+        border: none;
+  
+    }
+  }
+  
+    
+  @media (max-width: 900px) {
+  
+    .main-content--header {
+
+      align-items: center;
+        flex-direction: row;
+        gap: 10px;
+  
+      }
+  
+      .button {
+        height: 100%;
+        border-radius: 10px;
+        color: #861F1B;
+        border: none;
+  
     }
   
     
       
   }
+  

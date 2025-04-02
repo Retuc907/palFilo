@@ -26,6 +26,7 @@ import { CardPromocionesComponent } from './component/card-promociones/card-prom
 import { ChatBotComponent } from './component/chat-bot/chat-bot.component';
 import { MapaComponent } from './component/mapa/mapa.component';
 import { MapaRestaurantesComponent } from './pages/mapa-restaurantes/mapa-restaurantes.component';
+import { WebScrapingPageComponent } from './pages/web-scraping-page/web-scraping-page.component';
 
 
 
@@ -52,7 +53,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     CardPromocionesComponent,
     ChatBotComponent,
     MapaComponent,
-    MapaRestaurantesComponent
+    MapaRestaurantesComponent,
+    WebScrapingPageComponent
 
     
     

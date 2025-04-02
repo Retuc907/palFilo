@@ -39,7 +39,7 @@ export class ChatBotComponent implements OnInit {
   enviarPregunta(): void {
     if (!this.pregunta.trim() || this.restaurantId === null) return; // Evita preguntas vacías o sin restaurante seleccionado
 
-    console.log(`📩 Enviando pregunta: "${this.pregunta}" al restaurante ID: ${this.restaurantId}`);
+    console.log('📩 Enviando pregunta: "${this.pregunta}" al restaurante ID: ${this.restaurantId}');
 
     this.chatbotService.buscarRespuesta(this.pregunta, this.restaurantId).subscribe({
       next: (resp) => {

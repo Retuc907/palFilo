@@ -25,6 +25,8 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  text-align: center;
+color: #CF0404;
   height: 100vh; /* Que ocupe toda la pantalla */
 }
 
